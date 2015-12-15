@@ -1,0 +1,40 @@
+var Path = require("path");
+var AT = require('../index');
+
+//---------------
+// Create tools.
+var log = function(prefix) {
+    if (typeof prefix === 'undefined') prefix = 'log: ';
+    return AT.tools.ConsoleLog(prefix);
+};
+
+var readdir = AT.tools.ReadDir();
+var filter = AT.tools.MatchRegexp("tool\\.[a-z0-9\\-]+\\.js$");
+var loadtext = AT.tools.LoadText('utf-8');
+var firstcomment = require('./inc/tool.first-comment')();
+var getname = require('./inc/tool.get-name')();
+var concat = AT.tools.ConcatString(["", ""]);
+var foreach = AT.tools.ForEach({
+    tool: filter,
+    input: "text",
+    output: "md"
+});
+
+//-------------
+// Link tools.
+readdir.link(foreach);
+filter.link('yes', loadtext).link('text', firstcomment).link(log('comment: '));
+filter.link('yes', getname);
+
+//----------
+// Execute.
+readdir.exec(
+    {path: Path.join(__dirname, "..", "lib")}
+);
+
+
+
+
+
+
+

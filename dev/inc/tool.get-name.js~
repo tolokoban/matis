@@ -1,0 +1,20 @@
+var Tool = require('../../index').Tool;
+
+module.exports = function() {
+    return Tool({
+        input: "text", output: "comment",
+        exec: function(input, resolve, reject) {
+            var comment = input.text;
+            var start = comment.indexOf('/**');
+            if (start > -1) {
+                comment = comment.substr(start + 3);
+            }
+            var end = comment.indexOf('*/');
+            if (end > -1) {
+                comment = comment.substr(0, end);
+            }
+            comment = comment.trim();
+            resolve({comment: comment});
+        }
+    });
+};
