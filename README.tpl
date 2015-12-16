@@ -1,10 +1,14 @@
-# MATIS <small>_Multi-level Asynchrounous Tools Interconnection System_</small>
+# MATIS 
+<small><em>Multi-level Asynchrounous Tools Interconnection System</em></small>
 
 Fast complex asynchrounous processes made easy.
 
-----
+## Concepts
 
-@svg img/triggering.svg
+* __Input driven execution__: best explained with this ![animation](img/triggering.svg).
+* __Parallelism__: Tools are executed in parallel if it gives a time benefit. The result is a very fast process.
+* __Input order preserved__: even if a tool processes 3 inputs at the same time, outputs are post to the next tool in the same order.
+* __tracability__: Inputs trigger tools processing. And tools processing produces output. You always know which input has been needed to produce any output.
 
 
 ## Example
