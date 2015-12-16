@@ -47,9 +47,12 @@ function purify(comment) {
                 loop = false;
                 break;
             }
+            if (curChar > ' ' && curChar != '*') {
+                loop = false;
+                break;
+            }
         }
     }
-
     return lines.map(function(line) {
         return line.substr(i);
     }).join('\n');

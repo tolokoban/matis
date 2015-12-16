@@ -1,10 +1,10 @@
-# MATIS _Multi-level Asynchrounous Tools Interconnection System_
+# MATIS <small>_Multi-level Asynchrounous Tools Interconnection System_</small>
 
 Fast complex asynchrounous processes made easy.
 
 ----
 
-![triggering](img/triggering.svg)
+@svg img/triggering.svg
 
 
 ## Example

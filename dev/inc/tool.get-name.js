@@ -12,7 +12,7 @@ module.exports = function() {
                 finalName += word.charAt(0).toUpperCase()
                     + word.substr(1).toLowerCase();                
             });
-            resolve({name: finalName});
+            resolve({name: 'Matis.tools.' + finalName.substr(0, finalName.length - 3)});
         }
     });
 };
