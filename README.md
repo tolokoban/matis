@@ -1,4 +1,5 @@
-# MATIS <small>_Multi-level Asynchrounous Tools Interconnection System_</small>
+# MATIS 
+<small><em>Multi-level Asynchrounous Tools Interconnection System</em></small>
 
 Fast complex asynchrounous processes made easy.
 
