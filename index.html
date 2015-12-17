@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640">
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Matis by tolokoban</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/tolokoban/matis">View on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Matis</h1>
+            <h2>Asynchronous tools that can be linked together not just in a single pipe, but in a complete non-looping graph.</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/tolokoban/matis/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/tolokoban/matis/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
+        <h1>
+<a id="matis" class="anchor" href="#matis" aria-hidden="true"><span class="octicon octicon-link"></span></a>MATIS</h1>
+
+<p><em>Multi-level Asynchrounous Tools Interconnection System</em></p>
+
+<p>Fast complex asynchrounous processes made easy.</p>
+
+<h2>
+<a id="concepts" class="anchor" href="#concepts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Concepts</h2>
+
+<ul>
+<li>
+<strong>Input driven execution</strong>: best explained with this <img src="img/triggering.svg" alt="animation">.</li>
+<li>
+<strong>Parallelism</strong>: Tools are executed in parallel if it gives a time benefit. The result is a very fast process.</li>
+<li>
+<strong>Input order preserved</strong>: even if a tool processes 3 inputs at the same time, outputs are post to the next tool in the same order.</li>
+<li>
+<strong>tracability</strong>: Inputs trigger tools processing. And tools processing produces output. You always know which input has been needed to produce any output.</li>
+</ul>
+
+<h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<pre lang="text"><code>                           |
+                           | path
+                      +----------+
+                      | loadBody |
+                      +----------+
+                    path |    | text
+                         |    |
+                 +-------+--( | )----------+
+                 |            |            |
+            path |            |            | path
+        +------------------+  |  +------------------+
+        | changeExtForHead |  |  | changeExtForFoot |
+        +------------------+  |  +------------------+
+        path |                |              | path
+             |                |              |
+        path |                |              | path
+       +------------+         |         +------------+
+       | existsHead |         |         | existsFoot |
+       +------------+         |         +------------+
+       no |       | yes       |       yes |       | no
+          |       |           |           |       |
+     void |       | path      |      path |       | void
++-----------+   +----------+  |  +----------+   +-----------+
+| constHead |   | loadHead |  |  | loadHead |   | constHead |
++-----------+   +----------+  |  +----------+   +-----------+
+     text |       | text      |      text |       | text
+          |       |           |           |       |
+          +---+---+           |           +---+---+
+              |               |               |
+              +------------+  |  +------------+
+                           |  |  |
+                           | b|  | 
+                           | o|  |
+                           | d|  |
+                      head | y|  | foot
+                         +--------+
+                         | concat |
+                         +--------+
+                             | text
+                             |
+</code></pre>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> Matis <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>async-tools<span class="pl-pds">"</span></span>);
+
+<span class="pl-c">// Create tools.</span>
+<span class="pl-k">var</span> loadBody <span class="pl-k">=</span> <span class="pl-smi">Matis</span>.<span class="pl-smi">tools</span>.<span class="pl-en">LoadText</span>(<span class="pl-s"><span class="pl-pds">'</span>utf-8<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> loadHead <span class="pl-k">=</span> <span class="pl-smi">Matis</span>.<span class="pl-smi">tools</span>.<span class="pl-en">LoadText</span>(<span class="pl-s"><span class="pl-pds">'</span>utf-8<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> loadFoot <span class="pl-k">=</span> <span class="pl-smi">Matis</span>.<span class="pl-smi">tools</span>.<span class="pl-en">LoadText</span>(<span class="pl-s"><span class="pl-pds">'</span>utf-8<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> changeExtForHead <span class="pl-k">=</span> <span class="pl-smi">Matis</span>.<span class="pl-smi">tools</span>.<span class="pl-en">ChangeExtension</span>({js<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>head<span class="pl-pds">"</span></span>});
+<span class="pl-k">var</span> changeExtForFoot <span class="pl-k">=</span> <span class="pl-smi">Matis</span>.<span class="pl-smi">tools</span>.<span class="pl-en">ChangeExtension</span>({js<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>foot<span class="pl-pds">"</span></span>});
+<span class="pl-k">var</span> existsHead <span class="pl-k">=</span> <span class="pl-smi">Matis</span>.<span class="pl-smi">tools</span>.<span class="pl-en">ExistsFile</span>();
+<span class="pl-k">var</span> existsFoot <span class="pl-k">=</span> <span class="pl-smi">Matis</span>.<span class="pl-smi">tools</span>.<span class="pl-en">ExistsFile</span>();
+<span class="pl-k">var</span> constHead <span class="pl-k">=</span> <span class="pl-smi">Matis</span>.<span class="pl-smi">tools</span>.<span class="pl-en">Constant</span>(<span class="pl-s"><span class="pl-pds">"</span>// Missing header.<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+<span class="pl-k">var</span> constFoot <span class="pl-k">=</span> <span class="pl-smi">Matis</span>.<span class="pl-smi">tools</span>.<span class="pl-en">Constant</span>(<span class="pl-s"><span class="pl-pds">"</span>// Missing footer.<span class="pl-cce">\n</span><span class="pl-pds">"</span></span>);
+<span class="pl-k">var</span> concat <span class="pl-k">=</span> <span class="pl-smi">Matis</span>.<span class="pl-smi">tools</span>.<span class="pl-en">ConcatStrings</span>([<span class="pl-s"><span class="pl-pds">'</span>head<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>body<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>foot<span class="pl-pds">'</span></span>]);
+
+<span class="pl-c">// Link tools.</span>
+<span class="pl-smi">loadBody</span>.<span class="pl-c1">link</span>(<span class="pl-s"><span class="pl-pds">'</span>text<span class="pl-pds">'</span></span>, concat, <span class="pl-s"><span class="pl-pds">'</span>body<span class="pl-pds">'</span></span>);
+<span class="pl-smi">loadBody</span>.<span class="pl-c1">link</span>(<span class="pl-s"><span class="pl-pds">'</span>path<span class="pl-pds">'</span></span>, changeExtForHead).<span class="pl-c1">link</span>(existsHead).<span class="pl-c1">link</span>(<span class="pl-s"><span class="pl-pds">'</span>yes<span class="pl-pds">'</span></span>, loadHead).<span class="pl-c1">link</span>(<span class="pl-s"><span class="pl-pds">'</span>text<span class="pl-pds">'</span></span>, concat, <span class="pl-s"><span class="pl-pds">'</span>head<span class="pl-pds">'</span></span>);
+<span class="pl-smi">loadBody</span>.<span class="pl-c1">link</span>(<span class="pl-s"><span class="pl-pds">'</span>path<span class="pl-pds">'</span></span>, changeExtForFoot).<span class="pl-c1">link</span>(existsFoot).<span class="pl-c1">link</span>(<span class="pl-s"><span class="pl-pds">'</span>yes<span class="pl-pds">'</span></span>, loadFoot).<span class="pl-c1">link</span>(<span class="pl-s"><span class="pl-pds">'</span>text<span class="pl-pds">'</span></span>, concat, <span class="pl-s"><span class="pl-pds">'</span>foot<span class="pl-pds">'</span></span>);
+<span class="pl-smi">existsHead</span>.<span class="pl-c1">link</span>(<span class="pl-s"><span class="pl-pds">'</span>no<span class="pl-pds">'</span></span>, constHead).<span class="pl-c1">link</span>(concat, <span class="pl-s"><span class="pl-pds">'</span>head<span class="pl-pds">'</span></span>);
+<span class="pl-smi">existsFoot</span>.<span class="pl-c1">link</span>(<span class="pl-s"><span class="pl-pds">'</span>no<span class="pl-pds">'</span></span>, constFoot).<span class="pl-c1">link</span>(concat, <span class="pl-s"><span class="pl-pds">'</span>foot<span class="pl-pds">'</span></span>);
+
+<span class="pl-c">// Execute.</span>
+<span class="pl-smi">loadBody</span>.<span class="pl-c1">exec</span>(
+    { path<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>myfile.js<span class="pl-pds">'</span></span> },
+    <span class="pl-k">function</span> (<span class="pl-smi">output</span>) {
+        <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Result is: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> <span class="pl-smi">output</span>.<span class="pl-c1">text</span>);
+    },
+    <span class="pl-k">function</span> (<span class="pl-smi">err</span>) {
+        <span class="pl-en">console</span>.<span class="pl-c1">error</span>(<span class="pl-s"><span class="pl-pds">"</span>Error: <span class="pl-pds">"</span></span> <span class="pl-k">+</span> err);
+    }
+);</pre></div>
+
+<h2>
+<a id="build-in-tools" class="anchor" href="#build-in-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build-in tools</h2>
+
+<p>While it's easy to write your own tools, we provide a list of generic build-in tools which can help you quickly prototype your processes.</p>
+
+<p><a name="Matis.tools.ChangeExtension"></a></p>
+
+<h3>
+<a id="matistoolschangeextension" class="anchor" href="#matistoolschangeextension" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matis.tools.ChangeExtension</h3>
+
+<p>An extension is the string after the last occurence of a dot (<code>.</code>) in
+a <code>path</code>.   This tool replaces  extensions with other one.   It never
+fails: the <code>reject</code> function will never be called.</p>
+
+<p><a href="https://github.com/param" class="user-mention">@param</a> {object}  extensions -  Each attribute  name is  replaced with
+it's  value. For  instance <code>{js:  'head'}</code> means  than the  extension
+<code>.js</code>  must  be  replaced  with <code>.head</code>.  Other  files  names  remain
+unchanged.</p>
+
+<p><a name="Matis.tools.ConcatStrings"></a></p>
+
+<h3>
+<a id="matistoolsconcatstrings" class="anchor" href="#matistoolsconcatstrings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matis.tools.ConcatStrings</h3>
+
+<p>Concat all the inputs in one output. </p>
+
+<p><a href="https://github.com/param" class="user-mention">@param</a> {array[string]} inputs - Array inputs' names.</p>
+
+<ul>
+<li>
+<strong>input</strong>: Thisn tool has a variable number of inputs specified by the <code>inputs</code> argument.</li>
+<li>
+<strong>output</strong>
+
+<ul>
+<li>{string} <code>text</code> - The resulting concatenated string.</li>
+</ul>
+</li>
+</ul>
+
+<p><a name="Matis.tools.ConsoleLog"></a></p>
+
+<h3>
+<a id="matistoolsconsolelog" class="anchor" href="#matistoolsconsolelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matis.tools.ConsoleLog</h3>
+
+<p>This tool is used for debug  purpose. The input is displayed with the
+<code>console.log()</code> function, then sent to the output unchanged.</p>
+
+<p><a name="Matis.tools.Constant"></a></p>
+
+<h3>
+<a id="matistoolsconstant" class="anchor" href="#matistoolsconstant" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matis.tools.Constant</h3>
+
+<p>Constants cas be used in many cases, such as default values.</p>
+
+<ul>
+<li>
+<strong>argument</strong>: the constant value this tool will always emit.</li>
+<li>
+<strong>input</strong>
+
+<ul>
+<li>{any} <code>void</code> - This input is just a trigger. It's value is ignored.</li>
+</ul>
+</li>
+<li>
+<strong>output</strong>
+
+<ul>
+<li>{any} <code>value</code> - A constant value defined by the <code>value</code> argument.</li>
+</ul>
+</li>
+</ul>
+
+<p><a name="Matis.tools.ExistsFile"></a></p>
+
+<h3>
+<a id="matistoolsexistsfile" class="anchor" href="#matistoolsexistsfile" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matis.tools.ExistsFile</h3>
+
+<p>If  <code>path</code>  exists and  is  a  file, emit  it  on  the <code>yes</code>  output,
+otherwise, emit it on the <code>no</code>.</p>
+
+<ul>
+<li>
+<strong>input</strong>
+
+<ul>
+<li>{string} path - Path of the file we want know if it exists.</li>
+</ul>
+</li>
+<li>
+<strong>output</strong>
+
+<ul>
+<li>{string} yes - Path of the file if it exists.</li>
+<li>{string} no - Path of the file if it does not exist.</li>
+</ul>
+</li>
+</ul>
+
+<p><a name="Matis.tools.ForEach"></a></p>
+
+<h3>
+<a id="matistoolsforeach" class="anchor" href="#matistoolsforeach" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matis.tools.ForEach</h3>
+
+<ul>
+<li>
+<strong>argument</strong>:
+
+<ul>
+<li>{array[string]} <code>input</code>: Array of inputs' names. The first one is the array over which we will loop.</li>
+<li>{array[string]} <code>output</code>: Array of outputs' names. They all are arrays.</li>
+<li>{Tool} <code>tool</code>:</li>
+</ul>
+</li>
+</ul>
+
+<p><a name="Matis.tools.Join"></a></p>
+
+<h3>
+<a id="matistoolsjoin" class="anchor" href="#matistoolsjoin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matis.tools.Join</h3>
+
+<p>Join all elements of an array with a <code>glue</code>.</p>
+
+<ul>
+<li>
+<strong>param</strong> 
+
+<ul>
+<li>{string} glue - Text to add between two elements of the <code>array</code>.</li>
+</ul>
+</li>
+<li>
+<strong>input</strong>
+
+<ul>
+<li>{array[string]} <code>array</code> - Array of strings to join with the <code>glue</code>.</li>
+</ul>
+</li>
+<li>
+<strong>output</strong>
+
+<ul>
+<li>{string} <code>text</code> - The resulting joined array..</li>
+</ul>
+</li>
+</ul>
+
+<p><a name="Matis.tools.LoadStream"></a></p>
+
+<h3>
+<a id="matistoolsloadstream" class="anchor" href="#matistoolsloadstream" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matis.tools.LoadStream</h3>
+
+<p><a href="https://github.com/param" class="user-mention">@param</a>  {object|string}   options  -  As   a  string,  this   is  the
+encoding. Otherwise, it  has the same meaning as the  argument in the
+<a href="https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback"><code>fs.readFile(filename[, options], callback)</code></a> function.</p>
+
+<p><a name="Matis.tools.LoadText"></a></p>
+
+<h3>
+<a id="matistoolsloadtext" class="anchor" href="#matistoolsloadtext" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matis.tools.LoadText</h3>
+
+<p><a href="https://github.com/param" class="user-mention">@param</a>  {object|string}   options  -  As   a  string,  this   is  the
+encoding. Otherwise, it  has the same meaning as the  argument in the
+<a href="https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback"><code>fs.readFile(filename[, options], callback)</code></a> function.</p>
+
+<p><a name="Matis.tools.MatchRegexp"></a></p>
+
+<h3>
+<a id="matistoolsmatchregexp" class="anchor" href="#matistoolsmatchregexp" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matis.tools.MatchRegexp</h3>
+
+<p>This tool is used for debug  purpose. The input is displayed with the
+<code>console.log()</code> function, then sent to the output unchanged.</p>
+
+<p><a name="Matis.tools.ReadDir"></a></p>
+
+<h3>
+<a id="matistoolsreaddir" class="anchor" href="#matistoolsreaddir" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matis.tools.ReadDir</h3>
+
+<ul>
+<li>Return an array of files' names contained in the folder <code>path</code>.</li>
+<li>
+<li>* <strong>input</strong>
+</li>
+<li>    * {string} <code>path</code> - Path from where to list existing files.</li>
+<li>* <strong>output</strong>
+</li>
+<li>* {array[string]} <code>files</code>  - Array of the  names of the files  in the
+    directory excluding <code>'.'</code> and <code>'..'</code>.</li>
+</ul>
+
+<p><a name="Matis.tools.SaveText"></a></p>
+
+<h3>
+<a id="matistoolssavetext" class="anchor" href="#matistoolssavetext" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matis.tools.SaveText</h3>
+
+<p><a href="https://github.com/param" class="user-mention">@param</a>  {object|string}   options  -  As   a  string,  this   is  the
+encoding. Otherwise, it  has the same meaning as the  argument in the
+<a href="https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback"><code>fs.readFile(filename[, options], callback)</code></a> function. Default is <code>utf8</code>.</p>
+
+<p><a name="Matis.tools.SvgToDataurl"></a></p>
+
+<h3>
+<a id="matistoolssvgtodataurl" class="anchor" href="#matistoolssvgtodataurl" aria-hidden="true"><span class="octicon octicon-link"></span></a>Matis.tools.SvgToDataurl</h3>
+
+<p>Transform an SVG source into a DataURL ready to use in an image.</p>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/tolokoban">tolokoban</a> can be found on <a href="https://github.com/tolokoban/matis">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
