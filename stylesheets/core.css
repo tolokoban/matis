@@ -1,3 +1,9 @@
 @import url("screen.css");
 @import url("non-screen.css") handheld;
 @import url("non-screen.css") only screen and (max-device-width:640px);
+
+
+header h2 span.first-letter {
+    font-size: 150%;
+    color: #ECE4D8;
+}

@@ -16,26 +16,17 @@
         </header>
         <section>
             <div>
-                <p>( <i>Fast complex asynchrounous processes made easy</i>. )</p>
-
-                <h1>Concepts</h1>
-
-                <ul>
-                    <li>
-                        <strong><a href="input-driven-exec.html">Input driven execution</a></strong>: processing starts as soon as input is ready.</li>
-                    <li>
-                        <strong>Parallelism</strong>: Tools are executed in parallel if it gives a time benefit. The result is a very fast process.</li>
-                    <li>
-                        <strong>Input order preserved</strong>: even if a tool processes 3 inputs at the same time, outputs are post to the next tool in the same order.</li>
-                    <li>
-                        <strong>tracability</strong>: You always know which input has been needed to produce any output.</li>
-                </ul>
+                <img src="img/input-driven-exec.svg" />
+                <p>
+                    As you can see in the above animation, the <i>Switch</i> tool is activated four times because it receives four inputs. Vowel are sent to it's bottom output, and consonnants to the top output.<br/>
+                    The <i>Concat</i> tool has two inputs, and it starts processing as soon as both inputs are provided.
+                </p>
             </div>
         </section>
         <footer>
             <a href="https://github.com/tolokoban/matis/zipball/master"><small>download</small><br/>.ZIP</a>
             <a href="https://github.com/tolokoban/matis/tarball/master"><small>download</small><br/>.TGZ</a>
-            <a href="https://github.com/tolokoban/matis">View on GitHub</a>
+            <a href="index.html">Back to index</a>
         </footer>
     </body>
 </html>

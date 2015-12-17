@@ -1,0 +1,7 @@
+@media (max-width: 500px) or (max-height: 500px) {
+    div.page > div:first-child > div > h2 {
+       display: none;
+    }
+}
+
+

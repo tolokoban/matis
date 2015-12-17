@@ -15,22 +15,20 @@
             <h2><span class='first-letter'>M</span>ulti-level <span class='first-letter'>A</span>synchrounous <span class='first-letter'>T</span>ools <span class='first-letter'>I</span>nterconnection <span class='first-letter'>S</span>ystem.</h2>
         </header>
         <section>
-            <div>
-                <p>( <i>Fast complex asynchrounous processes made easy</i>. )</p>
+            <p>( <i>Fast complex asynchrounous processes made easy</i>. )</p>
 
-                <h1>Concepts</h1>
+            <h1>Concepts</h1>
 
-                <ul>
-                    <li>
-                        <strong><a href="input-driven-exec.html">Input driven execution</a></strong>: processing starts as soon as input is ready.</li>
-                    <li>
-                        <strong>Parallelism</strong>: Tools are executed in parallel if it gives a time benefit. The result is a very fast process.</li>
-                    <li>
-                        <strong>Input order preserved</strong>: even if a tool processes 3 inputs at the same time, outputs are post to the next tool in the same order.</li>
-                    <li>
-                        <strong>tracability</strong>: You always know which input has been needed to produce any output.</li>
-                </ul>
-            </div>
+            <ul>
+                <li>
+                    <strong><a href="input-driven-exec.html">Input driven execution</a></strong>: processing starts as soon as input is ready.</li>
+                <li>
+                    <strong>Parallelism</strong>: Tools are executed in parallel if it gives a time benefit. The result is a very fast process.</li>
+                <li>
+                    <strong>Input order preserved</strong>: even if a tool processes 3 inputs at the same time, outputs are post to the next tool in the same order.</li>
+                <li>
+                    <strong>tracability</strong>: You always know which input has been needed to produce any output.</li>
+            </ul>
         </section>
         <footer>
             <a href="https://github.com/tolokoban/matis/zipball/master"><small>download</small><br/>.ZIP</a>

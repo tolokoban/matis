@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:svg="http://www.w3.org/2000/svg"
+     xmlns="http://www.w3.org/2000/svg"
+     version="1.0"
+     width="800"
+     height="300"
+     preserveAspectRatio="xMidYMid meet"
+     viewBox="0 0 1600 300">
+    <g stroke-width="3" stroke="#070">
+        <path d="M0,150H200"/>
+        <path d="M1400,150h200"/>
+        <path d="M600,100h400"/>
+        <path d="M600,200h400"/>
+    </g>
+    <g stroke="#007" fill="#00f" stroke-width="10">
+        <circle cx="175" cy="150" r="25" />
+        <circle cx="975" cy="100" r="25" />
+        <circle cx="975" cy="200" r="25" />
+    </g>
+    <g stroke="#700" fill="#f00" stroke-width="10">
+        <circle cx="1425" cy="150" r="25" />
+        <circle cx="625" cy="100" r="25" />
+        <circle cx="625" cy="200" r="25" />
+    </g>
+    <g stroke="#000" fill="#777" stroke-width="10">
+        <rect x="200" y="50" width="400" height="200">
+            <animate id="T1_V1a" begin="V1a_move.end" dur="0.5s"
+                     attributeName="fill" attributeType="XML"
+                     values="#777;#cc9;#777" />
+            <animate id="T1_V1b" begin="V1b_move.end" dur="0.5s"
+                     attributeName="fill" attributeType="XML"
+                     values="#777;#cc9;#777" />
+            <animate id="T1_V1c" begin="V1c_move.end" dur="0.5s"
+                     attributeName="fill" attributeType="XML"
+                     values="#777;#cc9;#777" />
+            <animate id="T1_V1d" begin="V1d_move.end" dur="0.5s"
+                     attributeName="fill" attributeType="XML"
+                     values="#777;#cc9;#777" />
+        </rect>
+        <rect x="1000" y="50" width="400" height="200">
+            <animate id="T2_V2a" begin="V2c_move.end" dur="0.5s"
+                     attributeName="fill" attributeType="XML"
+                     values="#777;#cc9;#777" />
+            <animate id="T2_V2b" begin="V2d_move.end" dur="0.5s"
+                     attributeName="fill" attributeType="XML"
+                     values="#777;#cc9;#777" />
+        </rect>
+    </g>
+    <g stroke="none" fill="#ffe" text-anchor="middle" font-size="80" font-family="sans-serif">
+        <text x="400" y="170">Switch</text>
+        <text x="1200" y="170">Concat</text>
+    </g>
+
+    <g stroke="#770" stroke-width="2" fill="#770" text-anchor="middle" font-size="40" font-family="monospace">
+        <g opacity="0">
+            <text x="0" y="0">F</text>
+            <animateTransform id="V1a_move" begin="0s;V3b_move.end" dur="2s" fill="freeze"
+                              attributeName="transform" attributeType="XML" type="translate"
+                              from="-50,140" to="130,140"/>
+            <animate id="V1a_on" begin="V1a_move.begin" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="0" to="1" />
+            <animate id="V1a_off" begin="V1a_move.end" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="1" to="0" />
+        </g>
+        <g opacity="0">
+            <text x="0" y="0">R</text>
+            <animateTransform id="V1b_move" begin="V1a_move.end" dur="2s" fill="freeze"
+                              attributeName="transform" attributeType="XML" type="translate"
+                              from="-50,140" to="130,140"/>
+            <animate id="V1b_on" begin="V1b_move.begin" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="0" to="1" />
+            <animate id="V1b_off" begin="V1b_move.end" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="1" to="0" />
+        </g>
+        <g opacity="0">
+            <text x="0" y="0">A</text>
+            <animateTransform id="V1c_move" begin="V1b_move.end" dur="2s" fill="freeze"
+                              attributeName="transform" attributeType="XML" type="translate"
+                              from="-50,140" to="130,140"/>
+            <animate id="V1c_on" begin="V1c_move.begin" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="0" to="1" />
+            <animate id="V1c_off" begin="V1c_move.end" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="1" to="0" />
+        </g>
+        <g opacity="0">
+            <text x="0" y="0">É</text>
+            <animateTransform id="V1d_move" begin="V1c_move.end" dur="2s" fill="freeze"
+                              attributeName="transform" attributeType="XML" type="translate"
+                              from="-50,140" to="130,140"/>
+            <animate id="V1d_on" begin="V1d_move.begin" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="0" to="1" />
+            <animate id="V1d_off" begin="V1d_move.end" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="1" to="0" />
+        </g>
+    </g>
+
+    <g stroke="#707" stroke-width="2" fill="#707" text-anchor="middle" font-size="40" font-family="monospace">
+        <g opacity="0">
+            <text x="0" y="0">F</text>
+            <animateTransform id="V2a_move" begin="T1_V1a.end" dur="1.5s" fill="freeze"
+                              attributeName="transform" attributeType="XML" type="translate"
+                              from="650,90" to="930,90"/>
+            <animate id="V2a_on" begin="V2a_move.begin" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="0" to="1" />
+            <animate id="V2a_off" begin="V2c_off.begin" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="1" to="0" />
+        </g>
+        <g opacity="0">
+            <text x="0" y="0">R</text>
+            <animateTransform id="V2b_move" begin="T1_V1b.end" dur="1.5s" fill="freeze"
+                              attributeName="transform" attributeType="XML" type="translate"
+                              from="650,90" to="900,90"/>
+            <animateTransform id="V2b_move" begin="V2a_off.end" dur="0.3s" fill="freeze"
+                              attributeName="transform" attributeType="XML" type="translate"
+                              from="900,90" to="930,90"/>
+            <animate id="V2b_on" begin="V2b_move.begin" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="0" to="1" />
+            <animate id="V2b_off" begin="V2d_off.begin" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="1" to="0" />
+        </g>
+        <g opacity="0">
+            <text x="0" y="0">A</text>
+            <animateTransform id="V2c_move" begin="T1_V1c.end" dur="1.5s" fill="freeze"
+                              attributeName="transform" attributeType="XML" type="translate"
+                              from="650,190" to="930,190"/>
+            <animate id="V2c_on" begin="V2c_move.begin" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="0" to="1" />
+            <animate id="V2c_off" begin="V2c_move.end" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="1" to="0" />
+        </g>
+        <g opacity="0">
+            <text x="0" y="0">É</text>
+            <animateTransform id="V2d_move" begin="T1_V1d.end" dur="1.5s" fill="freeze"
+                              attributeName="transform" attributeType="XML" type="translate"
+                              from="650,190" to="930,190"/>
+            <animate id="V2d_on" begin="V2d_move.begin" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="0" to="1" />
+            <animate id="V2d_off" begin="V2d_move.end" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="1" to="0" />
+        </g>
+    </g>
+
+    <g stroke="#077" stroke-width="2" fill="#077" text-anchor="middle" font-size="40" font-family="monospace">
+        <g opacity="0">
+            <text x="0" y="0">(Fa)</text>
+            <animateTransform id="V3a_move" begin="T2_V2a.end" dur="1s" fill="freeze"
+                              attributeName="transform" attributeType="XML" type="translate"
+                              from="1450,140" to="1560,140"/>
+            <animate id="V3a_on" begin="V3a_move.begin" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="0" to="1" />
+            <animate id="V3a_off" begin="V3b_move.begin" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="1" to="0" />
+        </g>
+        <g opacity="0">
+            <text x="0" y="0">(Ré)</text>
+            <animateTransform id="V3b_move" begin="T2_V2b.end" dur="1s" fill="freeze"
+                              attributeName="transform" attributeType="XML" type="translate"
+                              from="1450,140" to="1560,140"/>
+            <animate id="V3b_on" begin="V3b_move.begin" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="0" to="1" />
+            <animate id="V3b_off" begin="V3b_move.end + 2s" dur="0.3s"
+                     attributeName="opacity" attributeType="XML" fill="freeze"
+                     from="1" to="0" />
+        </g>
+    </g>
+
+</svg>
