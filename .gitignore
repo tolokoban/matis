@@ -1,5 +1,6 @@
 *#
 *~
+debug.*
 doc/tools.*.md
 node_modules/
 
