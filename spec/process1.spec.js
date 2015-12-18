@@ -8,6 +8,7 @@ function fixture(path) {
 var Matis = require("../index");
 
 // Create tools.
+var start = Matis.tools.Nop().name('start');
 var loadBody = Matis.tools.LoadText('utf-8');
 var loadHead = Matis.tools.LoadText('utf-8');
 var loadFoot = Matis.tools.LoadText('utf-8');
@@ -20,17 +21,20 @@ var constFoot = Matis.tools.Constant("// Missing footer.\n");
 var concat = Matis.tools.ConcatStrings(['head', 'body', 'foot']);
 
 // Link tools.
-loadBody.link('text', concat, 'body');
-loadBody.link('path', changeExtForHead).link(existsHead).link('yes', loadHead).link('text', concat, 'head');
-loadBody.link('path', changeExtForFoot).link(existsFoot).link('yes', loadFoot).link('text', concat, 'foot');
+start.link(loadBody);
+start.link(changeExtForHead);
+start.link(changeExtForFoot);
+loadBody.link(concat, 'body');
+changeExtForHead.link(existsHead).link('yes', loadHead).link(concat, 'head');
+changeExtForFoot.link(existsFoot).link('yes', loadFoot).link(concat, 'foot');
 existsHead.link('no', constHead).link(concat, 'head');
 existsFoot.link('no', constFoot).link(concat, 'foot');
 
 
 describe('Process (1)', function() {
     it('should concat `process1a.js` with a header and a footer.', function(done) {
-        loadBody.exec(
-            { path: fixture('process1a.js') },
+        start.exec(
+            { any: fixture('process1a.js') },
             function (output) {
                 if (output) {
                     expect(output.text).toEqual("/* Copyleft */var a = 27;// 2016-01-01");

@@ -9,23 +9,23 @@
     "links": {
       "files": [
         {
-          "target": "ForEach-10",
+          "target": "foreach-js-10",
           "input": "text"
         }
       ]
     }
   },
-  "ForEach-10": {
+  "foreach-js-10": {
     "input": [
       "text"
     ],
     "output": [
-      "text"
+      "path"
     ],
     "links": {
-      "text": [
+      "path": [
         {
-          "target": "doc-path-11",
+          "target": "doc-path-21",
           "input": "void"
         }
       ]
@@ -34,7 +34,7 @@
       "filter-tool-2"
     ]
   },
-  "doc-path-11": {
+  "doc-path-21": {
     "input": [
       "void"
     ],
@@ -44,13 +44,13 @@
     "links": {
       "value": [
         {
-          "target": "list-pages-12",
+          "target": "list-pages-22",
           "input": "path"
         }
       ]
     }
   },
-  "list-pages-12": {
+  "list-pages-22": {
     "input": [
       "path"
     ],
@@ -58,7 +58,191 @@
       "files"
     ],
     "links": {
-      "files": []
+      "files": [
+        {
+          "target": "foreach-md-23",
+          "input": "any"
+        }
+      ]
+    }
+  },
+  "foreach-md-23": {
+    "input": [
+      "any"
+    ],
+    "output": [
+      "path"
+    ],
+    "links": {
+      "path": []
+    },
+    "children": [
+      "start-11"
+    ]
+  },
+  "start-11": {
+    "input": [
+      "any"
+    ],
+    "output": [
+      "any"
+    ],
+    "links": {
+      "any": [
+        {
+          "target": "template-name-17",
+          "input": "void"
+        },
+        {
+          "target": "load-md-code-12",
+          "input": "path"
+        },
+        {
+          "target": "basename-15",
+          "input": "path"
+        }
+      ]
+    }
+  },
+  "basename-15": {
+    "input": [
+      "path"
+    ],
+    "output": [
+      "basename"
+    ],
+    "links": {
+      "basename": [
+        {
+          "target": "change-ext-16",
+          "input": "path"
+        }
+      ]
+    }
+  },
+  "change-ext-16": {
+    "input": [
+      "path"
+    ],
+    "output": [
+      "path"
+    ],
+    "links": {
+      "path": [
+        {
+          "target": "md-filename-14",
+          "input": "text"
+        }
+      ]
+    }
+  },
+  "md-filename-14": {
+    "input": [
+      "text"
+    ],
+    "output": [
+      "text"
+    ],
+    "links": {
+      "text": [
+        {
+          "target": "SaveText-20",
+          "input": "path"
+        }
+      ]
+    }
+  },
+  "SaveText-20": {
+    "input": [
+      "path",
+      "text"
+    ],
+    "output": [
+      "path"
+    ],
+    "links": {
+      "path": []
+    }
+  },
+  "load-md-code-12": {
+    "input": [
+      "path"
+    ],
+    "output": [
+      "text"
+    ],
+    "links": {
+      "text": [
+        {
+          "target": "Tool-13",
+          "input": "md"
+        }
+      ]
+    }
+  },
+  "Tool-13": {
+    "input": [
+      "md"
+    ],
+    "output": [
+      "html"
+    ],
+    "links": {
+      "html": [
+        {
+          "target": "combine-19",
+          "input": "text"
+        }
+      ]
+    }
+  },
+  "combine-19": {
+    "input": [
+      "text",
+      "template"
+    ],
+    "output": [
+      "text"
+    ],
+    "links": {
+      "text": [
+        {
+          "target": "SaveText-20",
+          "input": "text"
+        }
+      ]
+    }
+  },
+  "template-name-17": {
+    "input": [
+      "void"
+    ],
+    "output": [
+      "value"
+    ],
+    "links": {
+      "value": [
+        {
+          "target": "load-tpl-18",
+          "input": "path"
+        }
+      ]
+    }
+  },
+  "load-tpl-18": {
+    "input": [
+      "path"
+    ],
+    "output": [
+      "text"
+    ],
+    "links": {
+      "text": [
+        {
+          "target": "combine-19",
+          "input": "template"
+        }
+      ]
     }
   },
   "filter-tool-2": {
@@ -74,32 +258,13 @@
         {
           "target": "load-tool-code-3",
           "input": "path"
-        }
-      ],
-      "no": []
-    }
-  },
-  "load-tool-code-3": {
-    "input": [
-      "path"
-    ],
-    "output": [
-      "path",
-      "text"
-    ],
-    "links": {
-      "path": [
+        },
         {
           "target": "tool-name-5",
           "input": "path"
         }
       ],
-      "text": [
-        {
-          "target": "extract-comment-4",
-          "input": "text"
-        }
-      ]
+      "no": []
     }
   },
   "tool-name-5": {
@@ -183,6 +348,22 @@
       ]
     }
   },
+  "load-tool-code-3": {
+    "input": [
+      "path"
+    ],
+    "output": [
+      "text"
+    ],
+    "links": {
+      "text": [
+        {
+          "target": "extract-comment-4",
+          "input": "text"
+        }
+      ]
+    }
+  },
   "extract-comment-4": {
     "input": [
       "text"
@@ -199,4 +380,305 @@
       ]
     }
   }
-}
+},{"action":"IN","tool":"list-tools-1","input":{"path":"/home/tolokoban/Code/github/matis/lib"}}
+,{"action":"OUT","tool":"list-tools-1","output":{"files":["/home/tolokoban/Code/github/matis/lib/graphviz.js","/home/tolokoban/Code/github/matis/lib/graphviz.js~","/home/tolokoban/Code/github/matis/lib/record.js","/home/tolokoban/Code/github/matis/lib/record.js~","/home/tolokoban/Code/github/matis/lib/runtime.js","/home/tolokoban/Code/github/matis/lib/runtime.js~","/home/tolokoban/Code/github/matis/lib/tool.base-name.js","/home/tolokoban/Code/github/matis/lib/tool.black-hole.js","/home/tolokoban/Code/github/matis/lib/tool.change-extension.js","/home/tolokoban/Code/github/matis/lib/tool.concat-strings.js","/home/tolokoban/Code/github/matis/lib/tool.console-log.js","/home/tolokoban/Code/github/matis/lib/tool.constant.js","/home/tolokoban/Code/github/matis/lib/tool.dir-name.js","/home/tolokoban/Code/github/matis/lib/tool.exists-file.js","/home/tolokoban/Code/github/matis/lib/tool.for-each.js","/home/tolokoban/Code/github/matis/lib/tool.join.js","/home/tolokoban/Code/github/matis/lib/tool.join.js~","/home/tolokoban/Code/github/matis/lib/tool.js","/home/tolokoban/Code/github/matis/lib/tool.load-stream.js","/home/tolokoban/Code/github/matis/lib/tool.load-text.js","/home/tolokoban/Code/github/matis/lib/tool.match-regexp.js","/home/tolokoban/Code/github/matis/lib/tool.nop.js","/home/tolokoban/Code/github/matis/lib/tool.nop.js~","/home/tolokoban/Code/github/matis/lib/tool.prefix-suffix.js","/home/tolokoban/Code/github/matis/lib/tool.read-dir.js","/home/tolokoban/Code/github/matis/lib/tool.save-text.js","/home/tolokoban/Code/github/matis/lib/tool.save-text.js~","/home/tolokoban/Code/github/matis/lib/tool.shell-exec.js","/home/tolokoban/Code/github/matis/lib/tool.shell-exec.js~","/home/tolokoban/Code/github/matis/lib/tool.svg-to-dataurl.js","/home/tolokoban/Code/github/matis/lib/tool.svg-to-dataurl.js~"]}}
+,{"action":"IN","tool":"foreach-js-10","input":{"text":["/home/tolokoban/Code/github/matis/lib/graphviz.js","/home/tolokoban/Code/github/matis/lib/graphviz.js~","/home/tolokoban/Code/github/matis/lib/record.js","/home/tolokoban/Code/github/matis/lib/record.js~","/home/tolokoban/Code/github/matis/lib/runtime.js","/home/tolokoban/Code/github/matis/lib/runtime.js~","/home/tolokoban/Code/github/matis/lib/tool.base-name.js","/home/tolokoban/Code/github/matis/lib/tool.black-hole.js","/home/tolokoban/Code/github/matis/lib/tool.change-extension.js","/home/tolokoban/Code/github/matis/lib/tool.concat-strings.js","/home/tolokoban/Code/github/matis/lib/tool.console-log.js","/home/tolokoban/Code/github/matis/lib/tool.constant.js","/home/tolokoban/Code/github/matis/lib/tool.dir-name.js","/home/tolokoban/Code/github/matis/lib/tool.exists-file.js","/home/tolokoban/Code/github/matis/lib/tool.for-each.js","/home/tolokoban/Code/github/matis/lib/tool.join.js","/home/tolokoban/Code/github/matis/lib/tool.join.js~","/home/tolokoban/Code/github/matis/lib/tool.js","/home/tolokoban/Code/github/matis/lib/tool.load-stream.js","/home/tolokoban/Code/github/matis/lib/tool.load-text.js","/home/tolokoban/Code/github/matis/lib/tool.match-regexp.js","/home/tolokoban/Code/github/matis/lib/tool.nop.js","/home/tolokoban/Code/github/matis/lib/tool.nop.js~","/home/tolokoban/Code/github/matis/lib/tool.prefix-suffix.js","/home/tolokoban/Code/github/matis/lib/tool.read-dir.js","/home/tolokoban/Code/github/matis/lib/tool.save-text.js","/home/tolokoban/Code/github/matis/lib/tool.save-text.js~","/home/tolokoban/Code/github/matis/lib/tool.shell-exec.js","/home/tolokoban/Code/github/matis/lib/tool.shell-exec.js~","/home/tolokoban/Code/github/matis/lib/tool.svg-to-dataurl.js","/home/tolokoban/Code/github/matis/lib/tool.svg-to-dataurl.js~"]}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":0,"text":"/home/tolokoban/Code/github/matis/lib/graphviz.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"no":"/home/tolokoban/Code/github/matis/lib/graphviz.js","$tag":0}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":1,"text":"/home/tolokoban/Code/github/matis/lib/graphviz.js~"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"no":"/home/tolokoban/Code/github/matis/lib/graphviz.js~","$tag":1}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":2,"text":"/home/tolokoban/Code/github/matis/lib/record.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"no":"/home/tolokoban/Code/github/matis/lib/record.js","$tag":2}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":3,"text":"/home/tolokoban/Code/github/matis/lib/record.js~"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"no":"/home/tolokoban/Code/github/matis/lib/record.js~","$tag":3}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":4,"text":"/home/tolokoban/Code/github/matis/lib/runtime.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"no":"/home/tolokoban/Code/github/matis/lib/runtime.js","$tag":4}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":5,"text":"/home/tolokoban/Code/github/matis/lib/runtime.js~"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"no":"/home/tolokoban/Code/github/matis/lib/runtime.js~","$tag":5}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":6,"text":"/home/tolokoban/Code/github/matis/lib/tool.base-name.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.base-name.js","$tag":6}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":6,"path":"/home/tolokoban/Code/github/matis/lib/tool.base-name.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":6,"path":"/home/tolokoban/Code/github/matis/lib/tool.base-name.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.BaseName","$tag":6}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":6,"text":"tools.BaseName"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.BaseName\n\n","$tag":6}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":6,"text":"tools.BaseName"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.BaseName.md","$tag":6}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":7,"text":"/home/tolokoban/Code/github/matis/lib/tool.black-hole.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.black-hole.js","$tag":7}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":7,"path":"/home/tolokoban/Code/github/matis/lib/tool.black-hole.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":7,"path":"/home/tolokoban/Code/github/matis/lib/tool.black-hole.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.BlackHole","$tag":7}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":7,"text":"tools.BlackHole"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.BlackHole\n\n","$tag":7}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":7,"text":"tools.BlackHole"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.BlackHole.md","$tag":7}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":8,"text":"/home/tolokoban/Code/github/matis/lib/tool.change-extension.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.change-extension.js","$tag":8}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":8,"path":"/home/tolokoban/Code/github/matis/lib/tool.change-extension.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":8,"path":"/home/tolokoban/Code/github/matis/lib/tool.change-extension.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.ChangeExtension","$tag":8}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":8,"text":"tools.ChangeExtension"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.ChangeExtension\n\n","$tag":8}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":8,"text":"tools.ChangeExtension"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.ChangeExtension.md","$tag":8}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":9,"text":"/home/tolokoban/Code/github/matis/lib/tool.concat-strings.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.concat-strings.js","$tag":9}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":9,"path":"/home/tolokoban/Code/github/matis/lib/tool.concat-strings.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":9,"path":"/home/tolokoban/Code/github/matis/lib/tool.concat-strings.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.ConcatStrings","$tag":9}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":9,"text":"tools.ConcatStrings"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.ConcatStrings\n\n","$tag":9}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":9,"text":"tools.ConcatStrings"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.ConcatStrings.md","$tag":9}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":10,"text":"/home/tolokoban/Code/github/matis/lib/tool.console-log.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.console-log.js","$tag":10}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":10,"path":"/home/tolokoban/Code/github/matis/lib/tool.console-log.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":10,"path":"/home/tolokoban/Code/github/matis/lib/tool.console-log.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.ConsoleLog","$tag":10}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":10,"text":"tools.ConsoleLog"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.ConsoleLog\n\n","$tag":10}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":10,"text":"tools.ConsoleLog"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.ConsoleLog.md","$tag":10}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":11,"text":"/home/tolokoban/Code/github/matis/lib/tool.constant.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.constant.js","$tag":11}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":11,"path":"/home/tolokoban/Code/github/matis/lib/tool.constant.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":11,"path":"/home/tolokoban/Code/github/matis/lib/tool.constant.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.Constant","$tag":11}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":11,"text":"tools.Constant"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.Constant\n\n","$tag":11}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":11,"text":"tools.Constant"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.Constant.md","$tag":11}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":12,"text":"/home/tolokoban/Code/github/matis/lib/tool.dir-name.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.dir-name.js","$tag":12}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":12,"path":"/home/tolokoban/Code/github/matis/lib/tool.dir-name.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":12,"path":"/home/tolokoban/Code/github/matis/lib/tool.dir-name.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.DirName","$tag":12}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":12,"text":"tools.DirName"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.DirName\n\n","$tag":12}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":12,"text":"tools.DirName"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.DirName.md","$tag":12}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":13,"text":"/home/tolokoban/Code/github/matis/lib/tool.exists-file.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.exists-file.js","$tag":13}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":13,"path":"/home/tolokoban/Code/github/matis/lib/tool.exists-file.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":13,"path":"/home/tolokoban/Code/github/matis/lib/tool.exists-file.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.ExistsFile","$tag":13}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":13,"text":"tools.ExistsFile"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.ExistsFile\n\n","$tag":13}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":13,"text":"tools.ExistsFile"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.ExistsFile.md","$tag":13}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":14,"text":"/home/tolokoban/Code/github/matis/lib/tool.for-each.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.for-each.js","$tag":14}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":14,"path":"/home/tolokoban/Code/github/matis/lib/tool.for-each.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":14,"path":"/home/tolokoban/Code/github/matis/lib/tool.for-each.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.ForEach","$tag":14}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":14,"text":"tools.ForEach"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.ForEach\n\n","$tag":14}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":14,"text":"tools.ForEach"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.ForEach.md","$tag":14}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":15,"text":"/home/tolokoban/Code/github/matis/lib/tool.join.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.join.js","$tag":15}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":15,"path":"/home/tolokoban/Code/github/matis/lib/tool.join.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":15,"path":"/home/tolokoban/Code/github/matis/lib/tool.join.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.Join","$tag":15}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":15,"text":"tools.Join"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.Join\n\n","$tag":15}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":15,"text":"tools.Join"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.Join.md","$tag":15}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":16,"text":"/home/tolokoban/Code/github/matis/lib/tool.join.js~"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"no":"/home/tolokoban/Code/github/matis/lib/tool.join.js~","$tag":16}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":17,"text":"/home/tolokoban/Code/github/matis/lib/tool.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"no":"/home/tolokoban/Code/github/matis/lib/tool.js","$tag":17}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":18,"text":"/home/tolokoban/Code/github/matis/lib/tool.load-stream.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.load-stream.js","$tag":18}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":18,"path":"/home/tolokoban/Code/github/matis/lib/tool.load-stream.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":18,"path":"/home/tolokoban/Code/github/matis/lib/tool.load-stream.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.LoadStream","$tag":18}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":18,"text":"tools.LoadStream"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.LoadStream\n\n","$tag":18}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":18,"text":"tools.LoadStream"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.LoadStream.md","$tag":18}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":19,"text":"/home/tolokoban/Code/github/matis/lib/tool.load-text.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.load-text.js","$tag":19}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":19,"path":"/home/tolokoban/Code/github/matis/lib/tool.load-text.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":19,"path":"/home/tolokoban/Code/github/matis/lib/tool.load-text.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.LoadText","$tag":19}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":19,"text":"tools.LoadText"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.LoadText\n\n","$tag":19}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":19,"text":"tools.LoadText"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.LoadText.md","$tag":19}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":20,"text":"/home/tolokoban/Code/github/matis/lib/tool.match-regexp.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.match-regexp.js","$tag":20}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":20,"path":"/home/tolokoban/Code/github/matis/lib/tool.match-regexp.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":20,"path":"/home/tolokoban/Code/github/matis/lib/tool.match-regexp.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.MatchRegexp","$tag":20}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":20,"text":"tools.MatchRegexp"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.MatchRegexp\n\n","$tag":20}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":20,"text":"tools.MatchRegexp"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.MatchRegexp.md","$tag":20}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":21,"text":"/home/tolokoban/Code/github/matis/lib/tool.nop.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.nop.js","$tag":21}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":21,"path":"/home/tolokoban/Code/github/matis/lib/tool.nop.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":21,"path":"/home/tolokoban/Code/github/matis/lib/tool.nop.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.Nop","$tag":21}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":21,"text":"tools.Nop"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.Nop\n\n","$tag":21}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":21,"text":"tools.Nop"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.Nop.md","$tag":21}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":22,"text":"/home/tolokoban/Code/github/matis/lib/tool.nop.js~"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"no":"/home/tolokoban/Code/github/matis/lib/tool.nop.js~","$tag":22}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":23,"text":"/home/tolokoban/Code/github/matis/lib/tool.prefix-suffix.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.prefix-suffix.js","$tag":23}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":23,"path":"/home/tolokoban/Code/github/matis/lib/tool.prefix-suffix.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":23,"path":"/home/tolokoban/Code/github/matis/lib/tool.prefix-suffix.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.PrefixSuffix","$tag":23}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":23,"text":"tools.PrefixSuffix"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.PrefixSuffix\n\n","$tag":23}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":23,"text":"tools.PrefixSuffix"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.PrefixSuffix.md","$tag":23}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":24,"text":"/home/tolokoban/Code/github/matis/lib/tool.read-dir.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.read-dir.js","$tag":24}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":24,"path":"/home/tolokoban/Code/github/matis/lib/tool.read-dir.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":24,"path":"/home/tolokoban/Code/github/matis/lib/tool.read-dir.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.ReadDir","$tag":24}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":24,"text":"tools.ReadDir"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.ReadDir\n\n","$tag":24}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":24,"text":"tools.ReadDir"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.ReadDir.md","$tag":24}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":25,"text":"/home/tolokoban/Code/github/matis/lib/tool.save-text.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.save-text.js","$tag":25}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":25,"path":"/home/tolokoban/Code/github/matis/lib/tool.save-text.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":25,"path":"/home/tolokoban/Code/github/matis/lib/tool.save-text.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.SaveText","$tag":25}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":25,"text":"tools.SaveText"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.SaveText\n\n","$tag":25}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":25,"text":"tools.SaveText"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.SaveText.md","$tag":25}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":26,"text":"/home/tolokoban/Code/github/matis/lib/tool.save-text.js~"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"no":"/home/tolokoban/Code/github/matis/lib/tool.save-text.js~","$tag":26}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":27,"text":"/home/tolokoban/Code/github/matis/lib/tool.shell-exec.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.shell-exec.js","$tag":27}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":27,"path":"/home/tolokoban/Code/github/matis/lib/tool.shell-exec.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":27,"path":"/home/tolokoban/Code/github/matis/lib/tool.shell-exec.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.ShellExec","$tag":27}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":27,"text":"tools.ShellExec"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.ShellExec\n\n","$tag":27}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":27,"text":"tools.ShellExec"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.ShellExec.md","$tag":27}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":28,"text":"/home/tolokoban/Code/github/matis/lib/tool.shell-exec.js~"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"no":"/home/tolokoban/Code/github/matis/lib/tool.shell-exec.js~","$tag":28}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":29,"text":"/home/tolokoban/Code/github/matis/lib/tool.svg-to-dataurl.js"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"yes":"/home/tolokoban/Code/github/matis/lib/tool.svg-to-dataurl.js","$tag":29}}
+,{"action":"IN","tool":"load-tool-code-3","input":{"$tag":29,"path":"/home/tolokoban/Code/github/matis/lib/tool.svg-to-dataurl.js"}}
+,{"action":"IN","tool":"tool-name-5","input":{"$tag":29,"path":"/home/tolokoban/Code/github/matis/lib/tool.svg-to-dataurl.js"}}
+,{"action":"OUT","tool":"tool-name-5","output":{"name":"tools.SvgToDataurl","$tag":29}}
+,{"action":"IN","tool":"PrefixSuffix-6","input":{"$tag":29,"text":"tools.SvgToDataurl"}}
+,{"action":"OUT","tool":"PrefixSuffix-6","output":{"text":"# tools.SvgToDataurl\n\n","$tag":29}}
+,{"action":"IN","tool":"md-filename-8","input":{"$tag":29,"text":"tools.SvgToDataurl"}}
+,{"action":"OUT","tool":"md-filename-8","output":{"text":"/home/tolokoban/Code/github/matis/dev/doc/tools.SvgToDataurl.md","$tag":29}}
+,{"action":"IN","tool":"filter-tool-2","input":{"$tag":30,"text":"/home/tolokoban/Code/github/matis/lib/tool.svg-to-dataurl.js~"}}
+,{"action":"OUT","tool":"filter-tool-2","output":{"no":"/home/tolokoban/Code/github/matis/lib/tool.svg-to-dataurl.js~","$tag":30}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var Path = require(\"path\");\nvar Tool = require(\"./tool\");\n\n/**\n * Return the base name of `path`.\n * \n * * __input__\n *     * {string} `path` - Path to which we want to extract the basename.\n * * __output__\n * * {string} `basename`  - Basename of `path`.\n */\nmodule.exports = function() {\n    return Tool({\n        name: \"BaseName\",\n        input: \"path\",\n        output: \"basename\",\n        exec: function(input, resolve, reject) {\n            resolve({basename: Path.basename(input.path)});\n        }\n    });\n};\n","$tag":6}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":6,"text":"var Path = require(\"path\");\nvar Tool = require(\"./tool\");\n\n/**\n * Return the base name of `path`.\n * \n * * __input__\n *     * {string} `path` - Path to which we want to extract the basename.\n * * __output__\n * * {string} `basename`  - Basename of `path`.\n */\nmodule.exports = function() {\n    return Tool({\n        name: \"BaseName\",\n        input: \"path\",\n        output: \"basename\",\n        exec: function(input, resolve, reject) {\n            resolve({basename: Path.basename(input.path)});\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\nReturn the base name of `path`.\n\n* __input__\n    * {string} `path` - Path to which we want to extract the basename.\n* __output__\n* {string} `basename`  - Basename of `path`.\n","$tag":6}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":6,"title":"# tools.BaseName\n\n","comment":"\nReturn the base name of `path`.\n\n* __input__\n    * {string} `path` - Path to which we want to extract the basename.\n* __output__\n* {string} `basename`  - Basename of `path`.\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.BaseName\n\n\nReturn the base name of `path`.\n\n* __input__\n    * {string} `path` - Path to which we want to extract the basename.\n* __output__\n* {string} `basename`  - Basename of `path`.\n","$tag":6}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":6,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.BaseName.md","text":"# tools.BaseName\n\n\nReturn the base name of `path`.\n\n* __input__\n    * {string} `path` - Path to which we want to extract the basename.\n* __output__\n* {string} `basename`  - Basename of `path`.\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var Tool = require(\"./tool\");\n\n/**\n * All not  linked ouptuts can  trigger a resolution.  But __BlackHole__\n * has no output. It is usefull to ignore some outputs.\n */\nmodule.exports = function() {\n    return Tool({\n        name: \"BlackHole\",\n        input: \"any\",\n        exec: function(input, resolve) {}\n    });\n};\n","$tag":7}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":7,"text":"var Tool = require(\"./tool\");\n\n/**\n * All not  linked ouptuts can  trigger a resolution.  But __BlackHole__\n * has no output. It is usefull to ignore some outputs.\n */\nmodule.exports = function() {\n    return Tool({\n        name: \"BlackHole\",\n        input: \"any\",\n        exec: function(input, resolve) {}\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\nAll not  linked ouptuts can  trigger a resolution.  But __BlackHole__\nhas no output. It is usefull to ignore some outputs.\n","$tag":7}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":7,"title":"# tools.BlackHole\n\n","comment":"\nAll not  linked ouptuts can  trigger a resolution.  But __BlackHole__\nhas no output. It is usefull to ignore some outputs.\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.BlackHole\n\n\nAll not  linked ouptuts can  trigger a resolution.  But __BlackHole__\nhas no output. It is usefull to ignore some outputs.\n","$tag":7}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":7,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.BlackHole.md","text":"# tools.BlackHole\n\n\nAll not  linked ouptuts can  trigger a resolution.  But __BlackHole__\nhas no output. It is usefull to ignore some outputs.\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var Tool = require(\"./tool\");\n\n/****************************************\n__ChangeExtension(options)__\n\nAn extension is the string after the last occurence of a dot (`.`) in a `path`.   This tool replaces  extensions with other one.\n\n## Options\nObject describing which changes have to be made.\nFor  instance `{less:  'css'}`  means that  the  tool must  replace extensions `.less` with `.css`.\n\n## Input\n* __path__: The path of which we want to change the extension.\n\n## Output\n* __path__: The  path with the  new extension. If the  extension is not part of the _options_, the output is the same as the input.\n\n## Example\n```js\nvar change = Matis.tools.ChangeExtension({less: 'css', md: 'html'});\n```\n*****************************************/\nmodule.exports = function(extensions) {\n    return Tool({\n        name: \"ChangeExtension\",\n        input: \"path\",\n        output: \"path\",\n        exec: function(input, resolve, reject) {\n            var path = input.path;\n            if (typeof path !== 'string') {\n                return reject.call(this, \"[\" + this.name() \n                                   + \"] `path` must be a string and not \" + (typeof path));\n            }\n            var extPos = path.lastIndexOf('.');\n            if (extPos > -1) {\n                // If there is no extension, `path` remains unchanged.\n                var ext = path.substr(extPos + 1);\n                var replacement = extensions[ext];\n                if (typeof replacement === 'string') {\n                    path = path.substr(0, extPos + 1) + replacement;\n                }\n            }\n            resolve.call(this, {path: path});\n        }\n    });\n};\n","$tag":8}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":8,"text":"var Tool = require(\"./tool\");\n\n/****************************************\n__ChangeExtension(options)__\n\nAn extension is the string after the last occurence of a dot (`.`) in a `path`.   This tool replaces  extensions with other one.\n\n## Options\nObject describing which changes have to be made.\nFor  instance `{less:  'css'}`  means that  the  tool must  replace extensions `.less` with `.css`.\n\n## Input\n* __path__: The path of which we want to change the extension.\n\n## Output\n* __path__: The  path with the  new extension. If the  extension is not part of the _options_, the output is the same as the input.\n\n## Example\n```js\nvar change = Matis.tools.ChangeExtension({less: 'css', md: 'html'});\n```\n*****************************************/\nmodule.exports = function(extensions) {\n    return Tool({\n        name: \"ChangeExtension\",\n        input: \"path\",\n        output: \"path\",\n        exec: function(input, resolve, reject) {\n            var path = input.path;\n            if (typeof path !== 'string') {\n                return reject.call(this, \"[\" + this.name() \n                                   + \"] `path` must be a string and not \" + (typeof path));\n            }\n            var extPos = path.lastIndexOf('.');\n            if (extPos > -1) {\n                // If there is no extension, `path` remains unchanged.\n                var ext = path.substr(extPos + 1);\n                var replacement = extensions[ext];\n                if (typeof replacement === 'string') {\n                    path = path.substr(0, extPos + 1) + replacement;\n                }\n            }\n            resolve.call(this, {path: path});\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"**************************************\n__ChangeExtension(options)__\n\nAn extension is the string after the last occurence of a dot (`.`) in a `path`.   This tool replaces  extensions with other one.\n\n## Options\nObject describing which changes have to be made.\nFor  instance `{less:  'css'}`  means that  the  tool must  replace extensions `.less` with `.css`.\n\n## Input\n* __path__: The path of which we want to change the extension.\n\n## Output\n* __path__: The  path with the  new extension. If the  extension is not part of the _options_, the output is the same as the input.\n\n## Example\n```js\nvar change = Matis.tools.ChangeExtension({less: 'css', md: 'html'});\n```\n****************************************","$tag":8}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":8,"title":"# tools.ChangeExtension\n\n","comment":"**************************************\n__ChangeExtension(options)__\n\nAn extension is the string after the last occurence of a dot (`.`) in a `path`.   This tool replaces  extensions with other one.\n\n## Options\nObject describing which changes have to be made.\nFor  instance `{less:  'css'}`  means that  the  tool must  replace extensions `.less` with `.css`.\n\n## Input\n* __path__: The path of which we want to change the extension.\n\n## Output\n* __path__: The  path with the  new extension. If the  extension is not part of the _options_, the output is the same as the input.\n\n## Example\n```js\nvar change = Matis.tools.ChangeExtension({less: 'css', md: 'html'});\n```\n****************************************"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.ChangeExtension\n\n**************************************\n__ChangeExtension(options)__\n\nAn extension is the string after the last occurence of a dot (`.`) in a `path`.   This tool replaces  extensions with other one.\n\n## Options\nObject describing which changes have to be made.\nFor  instance `{less:  'css'}`  means that  the  tool must  replace extensions `.less` with `.css`.\n\n## Input\n* __path__: The path of which we want to change the extension.\n\n## Output\n* __path__: The  path with the  new extension. If the  extension is not part of the _options_, the output is the same as the input.\n\n## Example\n```js\nvar change = Matis.tools.ChangeExtension({less: 'css', md: 'html'});\n```\n****************************************","$tag":8}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":8,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.ChangeExtension.md","text":"# tools.ChangeExtension\n\n**************************************\n__ChangeExtension(options)__\n\nAn extension is the string after the last occurence of a dot (`.`) in a `path`.   This tool replaces  extensions with other one.\n\n## Options\nObject describing which changes have to be made.\nFor  instance `{less:  'css'}`  means that  the  tool must  replace extensions `.less` with `.css`.\n\n## Input\n* __path__: The path of which we want to change the extension.\n\n## Output\n* __path__: The  path with the  new extension. If the  extension is not part of the _options_, the output is the same as the input.\n\n## Example\n```js\nvar change = Matis.tools.ChangeExtension({less: 'css', md: 'html'});\n```\n****************************************"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var Tool = require(\"./tool\");\n\n/**\n * Concat all the inputs in one output. \n * \n * @param {array[string]} inputs - Array inputs' names.\n *\n * * __input__: Thisn tool has a variable number of inputs specified by the `inputs` argument.\n * * __output__\n *     * {string} `text` - The resulting concatenated string.\n */\nmodule.exports = function(inputs) {\n    return Tool({\n        name: \"ConcatStrings\",\n        input: inputs.slice(),\n        output: \"text\",\n        exec: function(input, resolve, reject) {\n            var result = '';\n            inputs.forEach(function (inputName) {\n                result += input[inputName];                \n            });\n            resolve({text: result});\n        }\n    });\n};\n","$tag":9}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":9,"text":"var Tool = require(\"./tool\");\n\n/**\n * Concat all the inputs in one output. \n * \n * @param {array[string]} inputs - Array inputs' names.\n *\n * * __input__: Thisn tool has a variable number of inputs specified by the `inputs` argument.\n * * __output__\n *     * {string} `text` - The resulting concatenated string.\n */\nmodule.exports = function(inputs) {\n    return Tool({\n        name: \"ConcatStrings\",\n        input: inputs.slice(),\n        output: \"text\",\n        exec: function(input, resolve, reject) {\n            var result = '';\n            inputs.forEach(function (inputName) {\n                result += input[inputName];                \n            });\n            resolve({text: result});\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\nConcat all the inputs in one output. \n\n@param {array[string]} inputs - Array inputs' names.\n\n* __input__: Thisn tool has a variable number of inputs specified by the `inputs` argument.\n* __output__\n    * {string} `text` - The resulting concatenated string.\n","$tag":9}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":9,"title":"# tools.ConcatStrings\n\n","comment":"\nConcat all the inputs in one output. \n\n@param {array[string]} inputs - Array inputs' names.\n\n* __input__: Thisn tool has a variable number of inputs specified by the `inputs` argument.\n* __output__\n    * {string} `text` - The resulting concatenated string.\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.ConcatStrings\n\n\nConcat all the inputs in one output. \n\n@param {array[string]} inputs - Array inputs' names.\n\n* __input__: Thisn tool has a variable number of inputs specified by the `inputs` argument.\n* __output__\n    * {string} `text` - The resulting concatenated string.\n","$tag":9}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":9,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.ConcatStrings.md","text":"# tools.ConcatStrings\n\n\nConcat all the inputs in one output. \n\n@param {array[string]} inputs - Array inputs' names.\n\n* __input__: Thisn tool has a variable number of inputs specified by the `inputs` argument.\n* __output__\n    * {string} `text` - The resulting concatenated string.\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var Tool = require(\"./tool\");\n\n/**\n * This tool is used for debug  purpose. The input is displayed with the\n * `console.log()` function, then sent to the output unchanged.\n */\nmodule.exports = function(prefix) {\n    if (typeof prefix === 'undefined') prefix = 'any: ';\n\n    return Tool({\n        name: \"ConsoleLog\",\n        input: \"any\",\n        output: \"any\",\n        exec: function(input, resolve, reject) {\n            console.log(prefix + JSON.stringify(input.any, null, 3));\n            resolve(input);\n        }\n    });\n};\n","$tag":10}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":10,"text":"var Tool = require(\"./tool\");\n\n/**\n * This tool is used for debug  purpose. The input is displayed with the\n * `console.log()` function, then sent to the output unchanged.\n */\nmodule.exports = function(prefix) {\n    if (typeof prefix === 'undefined') prefix = 'any: ';\n\n    return Tool({\n        name: \"ConsoleLog\",\n        input: \"any\",\n        output: \"any\",\n        exec: function(input, resolve, reject) {\n            console.log(prefix + JSON.stringify(input.any, null, 3));\n            resolve(input);\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\nThis tool is used for debug  purpose. The input is displayed with the\n`console.log()` function, then sent to the output unchanged.\n","$tag":10}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":10,"title":"# tools.ConsoleLog\n\n","comment":"\nThis tool is used for debug  purpose. The input is displayed with the\n`console.log()` function, then sent to the output unchanged.\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.ConsoleLog\n\n\nThis tool is used for debug  purpose. The input is displayed with the\n`console.log()` function, then sent to the output unchanged.\n","$tag":10}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":10,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.ConsoleLog.md","text":"# tools.ConsoleLog\n\n\nThis tool is used for debug  purpose. The input is displayed with the\n`console.log()` function, then sent to the output unchanged.\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var Tool = require(\"./tool\");\n\n/**\n * Constants cas be used in many cases, such as default values.\n * \n * * __argument__: the constant value this tool will always emit.\n * * __input__\n *     * {any} `void` - This input is just a trigger. It's value is ignored.\n * * __output__\n *     * {any} `value` - A constant value defined by the `value` argument.\n */\nmodule.exports = function(value) {\n    return Tool({\n        name: \"Constant\",\n        input: \"void\",\n        output: \"value\",\n        exec: function(input, resolve, reject) {\n            resolve({value: value});\n        }\n    });\n};\n","$tag":11}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":11,"text":"var Tool = require(\"./tool\");\n\n/**\n * Constants cas be used in many cases, such as default values.\n * \n * * __argument__: the constant value this tool will always emit.\n * * __input__\n *     * {any} `void` - This input is just a trigger. It's value is ignored.\n * * __output__\n *     * {any} `value` - A constant value defined by the `value` argument.\n */\nmodule.exports = function(value) {\n    return Tool({\n        name: \"Constant\",\n        input: \"void\",\n        output: \"value\",\n        exec: function(input, resolve, reject) {\n            resolve({value: value});\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\nConstants cas be used in many cases, such as default values.\n\n* __argument__: the constant value this tool will always emit.\n* __input__\n    * {any} `void` - This input is just a trigger. It's value is ignored.\n* __output__\n    * {any} `value` - A constant value defined by the `value` argument.\n","$tag":11}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":11,"title":"# tools.Constant\n\n","comment":"\nConstants cas be used in many cases, such as default values.\n\n* __argument__: the constant value this tool will always emit.\n* __input__\n    * {any} `void` - This input is just a trigger. It's value is ignored.\n* __output__\n    * {any} `value` - A constant value defined by the `value` argument.\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.Constant\n\n\nConstants cas be used in many cases, such as default values.\n\n* __argument__: the constant value this tool will always emit.\n* __input__\n    * {any} `void` - This input is just a trigger. It's value is ignored.\n* __output__\n    * {any} `value` - A constant value defined by the `value` argument.\n","$tag":11}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":11,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.Constant.md","text":"# tools.Constant\n\n\nConstants cas be used in many cases, such as default values.\n\n* __argument__: the constant value this tool will always emit.\n* __input__\n    * {any} `void` - This input is just a trigger. It's value is ignored.\n* __output__\n    * {any} `value` - A constant value defined by the `value` argument.\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var Path = require(\"path\");\nvar Tool = require(\"./tool\");\n\n/**\n * Return the base name of `path`.\n * \n * * __input__\n *     * {string} `path` - Path to which we want to extract the basename.\n * * __output__\n * * {string} `basename`  - Basename of `path`.\n */\nmodule.exports = function() {\n    return Tool({\n        name: \"BaseName\",\n        input: \"path\",\n        output: \"basename\",\n        exec: function(input, resolve, reject) {\n            resolve({basename: Path.basename(input.path)});\n        }\n    });\n};\n","$tag":12}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":12,"text":"var Path = require(\"path\");\nvar Tool = require(\"./tool\");\n\n/**\n * Return the base name of `path`.\n * \n * * __input__\n *     * {string} `path` - Path to which we want to extract the basename.\n * * __output__\n * * {string} `basename`  - Basename of `path`.\n */\nmodule.exports = function() {\n    return Tool({\n        name: \"BaseName\",\n        input: \"path\",\n        output: \"basename\",\n        exec: function(input, resolve, reject) {\n            resolve({basename: Path.basename(input.path)});\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\nReturn the base name of `path`.\n\n* __input__\n    * {string} `path` - Path to which we want to extract the basename.\n* __output__\n* {string} `basename`  - Basename of `path`.\n","$tag":12}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":12,"title":"# tools.DirName\n\n","comment":"\nReturn the base name of `path`.\n\n* __input__\n    * {string} `path` - Path to which we want to extract the basename.\n* __output__\n* {string} `basename`  - Basename of `path`.\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.DirName\n\n\nReturn the base name of `path`.\n\n* __input__\n    * {string} `path` - Path to which we want to extract the basename.\n* __output__\n* {string} `basename`  - Basename of `path`.\n","$tag":12}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":12,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.DirName.md","text":"# tools.DirName\n\n\nReturn the base name of `path`.\n\n* __input__\n    * {string} `path` - Path to which we want to extract the basename.\n* __output__\n* {string} `basename`  - Basename of `path`.\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var FS = require(\"fs\");\nvar Tool = require(\"./tool\");\n\n/**\n * If  `path`  exists and  is  a  file, emit  it  on  the `yes`  output,\n * otherwise, emit it on the `no`.\n *\n * * __input__\n *     * {string} path - Path of the file we want know if it exists.\n * * __output__\n *     * {string} yes - Path of the file if it exists.\n *     * {string} no - Path of the file if it does not exist.\n */\nmodule.exports = function(options) {\n    return Tool({\n        input: \"path\",\n        output: [\"yes\", \"no\"],\n        exec: function(input, resolve, reject) {\n            FS.stat(input.path, function(err, stats) {\n                if (err) reject(err);\n                else {\n                    if (stats.isFile()) {\n                        resolve({yes: input.path});\n                    } else {\n                        resolve({no: input.path});\n                    }\n                }\n            });\n        }\n    });\n};\n","$tag":13}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":13,"text":"var FS = require(\"fs\");\nvar Tool = require(\"./tool\");\n\n/**\n * If  `path`  exists and  is  a  file, emit  it  on  the `yes`  output,\n * otherwise, emit it on the `no`.\n *\n * * __input__\n *     * {string} path - Path of the file we want know if it exists.\n * * __output__\n *     * {string} yes - Path of the file if it exists.\n *     * {string} no - Path of the file if it does not exist.\n */\nmodule.exports = function(options) {\n    return Tool({\n        input: \"path\",\n        output: [\"yes\", \"no\"],\n        exec: function(input, resolve, reject) {\n            FS.stat(input.path, function(err, stats) {\n                if (err) reject(err);\n                else {\n                    if (stats.isFile()) {\n                        resolve({yes: input.path});\n                    } else {\n                        resolve({no: input.path});\n                    }\n                }\n            });\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\nIf  `path`  exists and  is  a  file, emit  it  on  the `yes`  output,\notherwise, emit it on the `no`.\n\n* __input__\n    * {string} path - Path of the file we want know if it exists.\n* __output__\n    * {string} yes - Path of the file if it exists.\n    * {string} no - Path of the file if it does not exist.\n","$tag":13}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":13,"title":"# tools.ExistsFile\n\n","comment":"\nIf  `path`  exists and  is  a  file, emit  it  on  the `yes`  output,\notherwise, emit it on the `no`.\n\n* __input__\n    * {string} path - Path of the file we want know if it exists.\n* __output__\n    * {string} yes - Path of the file if it exists.\n    * {string} no - Path of the file if it does not exist.\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.ExistsFile\n\n\nIf  `path`  exists and  is  a  file, emit  it  on  the `yes`  output,\notherwise, emit it on the `no`.\n\n* __input__\n    * {string} path - Path of the file we want know if it exists.\n* __output__\n    * {string} yes - Path of the file if it exists.\n    * {string} no - Path of the file if it does not exist.\n","$tag":13}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":13,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.ExistsFile.md","text":"# tools.ExistsFile\n\n\nIf  `path`  exists and  is  a  file, emit  it  on  the `yes`  output,\notherwise, emit it on the `no`.\n\n* __input__\n    * {string} path - Path of the file we want know if it exists.\n* __output__\n    * {string} yes - Path of the file if it exists.\n    * {string} no - Path of the file if it does not exist.\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var FS = require(\"fs\");\nvar Tool = require(\"./tool\");\n\n/**\n * * __argument__:\n *     * {array[string]} `input`: Array of inputs' names. The first one is the array over which we will loop.\n *     * {array[string]} `output`: Array of outputs' names. They all are arrays.\n *     * {Tool} `tool`:\n */\nmodule.exports = function(options) {\n    if (typeof options.tool === 'undefined') {\n        throw Error(\"[tools.ForEach] `options.tools` is mandatory!\");\n    }\n    if (!Tool.isTool(options.tool)) {\n        throw Error(\"[tools.ForEach] `options.tools` must be a Tool!\");\n    }\n    if (typeof options.input !== 'undefined') {\n        options.tool = options.tool.name();\n        throw Error(\"[tools.ForEach] `options.input` must not be set! \"\n                    + \"Inputs are the same as inputs of the inner tool.\\n\"\n                    + JSON.stringify(options, null, '  '));\n    }\n    // Input of foreach is the input of the inner tool.\n    options.input = options.tool.definition.input.slice();\n    if (typeof options.output === 'undefined') {\n        throw Error(\"[tools.ForEach] `options.output` is mandatory!\");\n    }\n\n    return Tool({\n        name: \"ForEach\",\n        children: options.tool,\n        input: options.input,\n        output: options.output,\n        exec: function(input, resolve, reject) {\n            var that = this;\n            var items = input[that.definition.input[0]];\n            if (!Array.isArray(items)) items = [items];\n            // The final output is an aggregation of the outputs of every iteration.\n            var aggregatedOutput = {};\n            // Init it with  arrays. At the end, each  array will have\n            // the  same  length,  corresponding   to  the  number  of\n            // iterations.\n            that.definition.output.forEach(function (outputName) {\n                aggregatedOutput[outputName] = [];\n            });\n\n            var count = items.length;\n            if (count == 0) {\n                // Nothing to loop.\n                return resolve(aggregatedOutput);\n            }\n\n            // To know  if the process is  over, we have to  know if all\n            // the inputs has been consumed.\n            // The  `flags` array  has as  many items  as the  number of\n            // iterations  in  the  for-each.  Each  time  an  input  is\n            // consumed,  we mark  a `1`  in  the `flags`  array and  we\n            // decrease  `count`. As  soon as  `count` is  null, we  can\n            // resolve the for-each.\n            var flags = [];\n            items.forEach(function () {\n                flags.push(0);\n            });\n            var progressCounter = function(output) {\n                var tags = output.$tag;\n                if (!Array.isArray(tags)) {\n                    tags = [tags];\n                }\n                tags.forEach(function (tag) {\n                    if (flags[tag] == 0) {\n                        count--;\n                    }\n                    flags[tag]++;\n                });\n            };\n\n            items.forEach(function (itm, tag) {\n                var pack = {$tag: tag};\n                that.definition.input.forEach(function (inputName, idx) {\n                    if (idx == 0) {\n                        pack[inputName] = itm;\n                    } else {\n                        // We loop on the first input only. The others\n                        // are used repeatedly for each iteration.\n                        pack[inputName] = input[inputName];\n                    }\n                });\n                // Execute one iteration.\n                options.tool.exec(\n                    pack,\n                    function(output) {\n                        // `tools.ForEach` defines  its own  outputs. If\n                        // its  child produces  other outputs,  they are\n                        // swallowed.\n                        var hasDataToExport = false;\n                        var outputName;\n                        for (var i = 0 ; i < that.definition.output.length ; i++) {\n                            outputName = that.definition.output[i];\n                            if (output[outputName] !== undefined) {\n                                hasDataToExport = true;\n                                break;\n                            }\n                        }\n                        if (hasDataToExport) {\n                            that.definition.output.forEach(function (outputName) {\n                                aggregatedOutput[outputName].push(output[outputName]);\n                            });\n                        }\n                        progressCounter(output);\n                        if (count == 0) {\n                            resolve(aggregatedOutput);\n                        }\n                    },\n                    reject\n                );\n            });\n        }\n    });\n};\n","$tag":14}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":14,"text":"var FS = require(\"fs\");\nvar Tool = require(\"./tool\");\n\n/**\n * * __argument__:\n *     * {array[string]} `input`: Array of inputs' names. The first one is the array over which we will loop.\n *     * {array[string]} `output`: Array of outputs' names. They all are arrays.\n *     * {Tool} `tool`:\n */\nmodule.exports = function(options) {\n    if (typeof options.tool === 'undefined') {\n        throw Error(\"[tools.ForEach] `options.tools` is mandatory!\");\n    }\n    if (!Tool.isTool(options.tool)) {\n        throw Error(\"[tools.ForEach] `options.tools` must be a Tool!\");\n    }\n    if (typeof options.input !== 'undefined') {\n        options.tool = options.tool.name();\n        throw Error(\"[tools.ForEach] `options.input` must not be set! \"\n                    + \"Inputs are the same as inputs of the inner tool.\\n\"\n                    + JSON.stringify(options, null, '  '));\n    }\n    // Input of foreach is the input of the inner tool.\n    options.input = options.tool.definition.input.slice();\n    if (typeof options.output === 'undefined') {\n        throw Error(\"[tools.ForEach] `options.output` is mandatory!\");\n    }\n\n    return Tool({\n        name: \"ForEach\",\n        children: options.tool,\n        input: options.input,\n        output: options.output,\n        exec: function(input, resolve, reject) {\n            var that = this;\n            var items = input[that.definition.input[0]];\n            if (!Array.isArray(items)) items = [items];\n            // The final output is an aggregation of the outputs of every iteration.\n            var aggregatedOutput = {};\n            // Init it with  arrays. At the end, each  array will have\n            // the  same  length,  corresponding   to  the  number  of\n            // iterations.\n            that.definition.output.forEach(function (outputName) {\n                aggregatedOutput[outputName] = [];\n            });\n\n            var count = items.length;\n            if (count == 0) {\n                // Nothing to loop.\n                return resolve(aggregatedOutput);\n            }\n\n            // To know  if the process is  over, we have to  know if all\n            // the inputs has been consumed.\n            // The  `flags` array  has as  many items  as the  number of\n            // iterations  in  the  for-each.  Each  time  an  input  is\n            // consumed,  we mark  a `1`  in  the `flags`  array and  we\n            // decrease  `count`. As  soon as  `count` is  null, we  can\n            // resolve the for-each.\n            var flags = [];\n            items.forEach(function () {\n                flags.push(0);\n            });\n            var progressCounter = function(output) {\n                var tags = output.$tag;\n                if (!Array.isArray(tags)) {\n                    tags = [tags];\n                }\n                tags.forEach(function (tag) {\n                    if (flags[tag] == 0) {\n                        count--;\n                    }\n                    flags[tag]++;\n                });\n            };\n\n            items.forEach(function (itm, tag) {\n                var pack = {$tag: tag};\n                that.definition.input.forEach(function (inputName, idx) {\n                    if (idx == 0) {\n                        pack[inputName] = itm;\n                    } else {\n                        // We loop on the first input only. The others\n                        // are used repeatedly for each iteration.\n                        pack[inputName] = input[inputName];\n                    }\n                });\n                // Execute one iteration.\n                options.tool.exec(\n                    pack,\n                    function(output) {\n                        // `tools.ForEach` defines  its own  outputs. If\n                        // its  child produces  other outputs,  they are\n                        // swallowed.\n                        var hasDataToExport = false;\n                        var outputName;\n                        for (var i = 0 ; i < that.definition.output.length ; i++) {\n                            outputName = that.definition.output[i];\n                            if (output[outputName] !== undefined) {\n                                hasDataToExport = true;\n                                break;\n                            }\n                        }\n                        if (hasDataToExport) {\n                            that.definition.output.forEach(function (outputName) {\n                                aggregatedOutput[outputName].push(output[outputName]);\n                            });\n                        }\n                        progressCounter(output);\n                        if (count == 0) {\n                            resolve(aggregatedOutput);\n                        }\n                    },\n                    reject\n                );\n            });\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\n* __argument__:\n    * {array[string]} `input`: Array of inputs' names. The first one is the array over which we will loop.\n    * {array[string]} `output`: Array of outputs' names. They all are arrays.\n    * {Tool} `tool`:\n","$tag":14}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":14,"title":"# tools.ForEach\n\n","comment":"\n* __argument__:\n    * {array[string]} `input`: Array of inputs' names. The first one is the array over which we will loop.\n    * {array[string]} `output`: Array of outputs' names. They all are arrays.\n    * {Tool} `tool`:\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.ForEach\n\n\n* __argument__:\n    * {array[string]} `input`: Array of inputs' names. The first one is the array over which we will loop.\n    * {array[string]} `output`: Array of outputs' names. They all are arrays.\n    * {Tool} `tool`:\n","$tag":14}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":14,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.ForEach.md","text":"# tools.ForEach\n\n\n* __argument__:\n    * {array[string]} `input`: Array of inputs' names. The first one is the array over which we will loop.\n    * {array[string]} `output`: Array of outputs' names. They all are arrays.\n    * {Tool} `tool`:\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var Tool = require(\"./tool\");\n\n/**\n * Join all elements of an array with a `glue`.\n * \n * * __param__ \n *     * {string} glue - Text to add between two elements of the `array`.\n * * __input__\n *     * {array[string]} `array` - Array of strings to join with the `glue`.\n * * __output__\n *     * {string} `text` - The resulting joined array..\n */\nmodule.exports = function(glue) {\n    if (typeof glue === 'undefined') glue = '';\n\n    return Tool({\n        name: \"Join\",\n        input: \"array\",\n        output: \"text\",\n        exec: function(input, resolve, reject) {\n            if (typeof input.array.join === 'function') {\n                resolve({text: input.array.join(glue)});\n            } else {\n                resolve({text: input.array});\n            }\n        }\n    });\n};\n","$tag":15}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":15,"text":"var Tool = require(\"./tool\");\n\n/**\n * Join all elements of an array with a `glue`.\n * \n * * __param__ \n *     * {string} glue - Text to add between two elements of the `array`.\n * * __input__\n *     * {array[string]} `array` - Array of strings to join with the `glue`.\n * * __output__\n *     * {string} `text` - The resulting joined array..\n */\nmodule.exports = function(glue) {\n    if (typeof glue === 'undefined') glue = '';\n\n    return Tool({\n        name: \"Join\",\n        input: \"array\",\n        output: \"text\",\n        exec: function(input, resolve, reject) {\n            if (typeof input.array.join === 'function') {\n                resolve({text: input.array.join(glue)});\n            } else {\n                resolve({text: input.array});\n            }\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\nJoin all elements of an array with a `glue`.\n\n* __param__ \n    * {string} glue - Text to add between two elements of the `array`.\n* __input__\n    * {array[string]} `array` - Array of strings to join with the `glue`.\n* __output__\n    * {string} `text` - The resulting joined array..\n","$tag":15}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":15,"title":"# tools.Join\n\n","comment":"\nJoin all elements of an array with a `glue`.\n\n* __param__ \n    * {string} glue - Text to add between two elements of the `array`.\n* __input__\n    * {array[string]} `array` - Array of strings to join with the `glue`.\n* __output__\n    * {string} `text` - The resulting joined array..\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.Join\n\n\nJoin all elements of an array with a `glue`.\n\n* __param__ \n    * {string} glue - Text to add between two elements of the `array`.\n* __input__\n    * {array[string]} `array` - Array of strings to join with the `glue`.\n* __output__\n    * {string} `text` - The resulting joined array..\n","$tag":15}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":15,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.Join.md","text":"# tools.Join\n\n\nJoin all elements of an array with a `glue`.\n\n* __param__ \n    * {string} glue - Text to add between two elements of the `array`.\n* __input__\n    * {array[string]} `array` - Array of strings to join with the `glue`.\n* __output__\n    * {string} `text` - The resulting joined array..\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var FS = require(\"fs\");\nvar Tool = require(\"./tool\");\n\n/**\n *\n * @param  {object|string}   options  -  As   a  string,  this   is  the\n * encoding. Otherwise, it  has the same meaning as the  argument in the\n * [`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function.\n */\nmodule.exports = function(options) {\n    return Tool({\n        name: \"LoadStream\",\n        input: \"path\",\n        output: \"stream\",\n        exec: function(input, resolve, reject) {\n            FS.readFile(input.path, options, function(err, data) {\n                if (err) {\n                    reject(err);\n                } else {\n                    resolve({ stream: data });\n                }\n            });\n        }\n    });\n};\n","$tag":18}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":18,"text":"var FS = require(\"fs\");\nvar Tool = require(\"./tool\");\n\n/**\n *\n * @param  {object|string}   options  -  As   a  string,  this   is  the\n * encoding. Otherwise, it  has the same meaning as the  argument in the\n * [`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function.\n */\nmodule.exports = function(options) {\n    return Tool({\n        name: \"LoadStream\",\n        input: \"path\",\n        output: \"stream\",\n        exec: function(input, resolve, reject) {\n            FS.readFile(input.path, options, function(err, data) {\n                if (err) {\n                    reject(err);\n                } else {\n                    resolve({ stream: data });\n                }\n            });\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\n\n@param  {object|string}   options  -  As   a  string,  this   is  the\nencoding. Otherwise, it  has the same meaning as the  argument in the\n[`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function.\n","$tag":18}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":18,"title":"# tools.LoadStream\n\n","comment":"\n\n@param  {object|string}   options  -  As   a  string,  this   is  the\nencoding. Otherwise, it  has the same meaning as the  argument in the\n[`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function.\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.LoadStream\n\n\n\n@param  {object|string}   options  -  As   a  string,  this   is  the\nencoding. Otherwise, it  has the same meaning as the  argument in the\n[`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function.\n","$tag":18}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":18,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.LoadStream.md","text":"# tools.LoadStream\n\n\n\n@param  {object|string}   options  -  As   a  string,  this   is  the\nencoding. Otherwise, it  has the same meaning as the  argument in the\n[`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function.\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var FS = require(\"fs\");\nvar Tool = require(\"./tool\");\n\n/**\n *\n * @param  {object|string}   options  -  As   a  string,  this   is  the\n * encoding. Otherwise, it  has the same meaning as the  argument in the\n * [`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function.\n */\nmodule.exports = function(options) {\n    if (typeof options === 'undefined') options = 'utf8';\n\n    return Tool({\n        name: \"LoadText\",\n        input: \"path\",\n        output: \"text\",\n        exec: function(input, resolve, reject) {\n            var path = input.path;\n            if (typeof path !== 'string') {\n                return reject.call(this, \"[\" + this.name() \n                                   + \"] `path` must be a string and not \" + (typeof path));\n            }\n            FS.readFile(path, options, function(err, data) {\n                if (err) {\n                    reject.call(this, err);\n                } else {\n                    resolve.call(this, { text: data.toString() });\n                }\n            });\n        }\n    });\n};\n","$tag":19}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":19,"text":"var FS = require(\"fs\");\nvar Tool = require(\"./tool\");\n\n/**\n *\n * @param  {object|string}   options  -  As   a  string,  this   is  the\n * encoding. Otherwise, it  has the same meaning as the  argument in the\n * [`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function.\n */\nmodule.exports = function(options) {\n    if (typeof options === 'undefined') options = 'utf8';\n\n    return Tool({\n        name: \"LoadText\",\n        input: \"path\",\n        output: \"text\",\n        exec: function(input, resolve, reject) {\n            var path = input.path;\n            if (typeof path !== 'string') {\n                return reject.call(this, \"[\" + this.name() \n                                   + \"] `path` must be a string and not \" + (typeof path));\n            }\n            FS.readFile(path, options, function(err, data) {\n                if (err) {\n                    reject.call(this, err);\n                } else {\n                    resolve.call(this, { text: data.toString() });\n                }\n            });\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\n\n@param  {object|string}   options  -  As   a  string,  this   is  the\nencoding. Otherwise, it  has the same meaning as the  argument in the\n[`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function.\n","$tag":19}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":19,"title":"# tools.LoadText\n\n","comment":"\n\n@param  {object|string}   options  -  As   a  string,  this   is  the\nencoding. Otherwise, it  has the same meaning as the  argument in the\n[`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function.\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.LoadText\n\n\n\n@param  {object|string}   options  -  As   a  string,  this   is  the\nencoding. Otherwise, it  has the same meaning as the  argument in the\n[`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function.\n","$tag":19}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":19,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.LoadText.md","text":"# tools.LoadText\n\n\n\n@param  {object|string}   options  -  As   a  string,  this   is  the\nencoding. Otherwise, it  has the same meaning as the  argument in the\n[`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function.\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var Tool = require(\"./tool\");\n\n/**\n * This tool is used for debug  purpose. The input is displayed with the\n * `console.log()` function, then sent to the output unchanged.\n */\nmodule.exports = function(pattern, flags) {\n    var rx = new RegExp(pattern, flags);\n    \n    return Tool({\n        name: \"MathRegexp\",\n        input: \"text\",\n        output: [\"yes\", \"no\"],\n        exec: function(input, resolve, reject) {\n            try {\n                if (rx.test(input.text)) {\n                    resolve({yes: input.text});\n                } else {\n                    resolve({no: input.text});\n                }\n            } catch (ex) {\n                reject(ex);\n            }\n        }\n    });\n};\n","$tag":20}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":20,"text":"var Tool = require(\"./tool\");\n\n/**\n * This tool is used for debug  purpose. The input is displayed with the\n * `console.log()` function, then sent to the output unchanged.\n */\nmodule.exports = function(pattern, flags) {\n    var rx = new RegExp(pattern, flags);\n    \n    return Tool({\n        name: \"MathRegexp\",\n        input: \"text\",\n        output: [\"yes\", \"no\"],\n        exec: function(input, resolve, reject) {\n            try {\n                if (rx.test(input.text)) {\n                    resolve({yes: input.text});\n                } else {\n                    resolve({no: input.text});\n                }\n            } catch (ex) {\n                reject(ex);\n            }\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\nThis tool is used for debug  purpose. The input is displayed with the\n`console.log()` function, then sent to the output unchanged.\n","$tag":20}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":20,"title":"# tools.MatchRegexp\n\n","comment":"\nThis tool is used for debug  purpose. The input is displayed with the\n`console.log()` function, then sent to the output unchanged.\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.MatchRegexp\n\n\nThis tool is used for debug  purpose. The input is displayed with the\n`console.log()` function, then sent to the output unchanged.\n","$tag":20}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":20,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.MatchRegexp.md","text":"# tools.MatchRegexp\n\n\nThis tool is used for debug  purpose. The input is displayed with the\n`console.log()` function, then sent to the output unchanged.\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var Path = require(\"path\");\nvar Tool = require(\"./tool\");\n\n/**\n * Outpus the input verbatim.\n * \n * Can be useful  as a synchronisation point, or to  dispatch the same\n * input to several outputs.\n */\nmodule.exports = function() {\n    return Tool({\n        name: \"Nop\",\n        input: \"any\",\n        output: \"any\",\n        exec: function(input, resolve, reject) {\n            resolve({any: input.any});\n        }\n    });\n};\n","$tag":21}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":21,"text":"var Path = require(\"path\");\nvar Tool = require(\"./tool\");\n\n/**\n * Outpus the input verbatim.\n * \n * Can be useful  as a synchronisation point, or to  dispatch the same\n * input to several outputs.\n */\nmodule.exports = function() {\n    return Tool({\n        name: \"Nop\",\n        input: \"any\",\n        output: \"any\",\n        exec: function(input, resolve, reject) {\n            resolve({any: input.any});\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\nOutpus the input verbatim.\n\nCan be useful  as a synchronisation point, or to  dispatch the same\ninput to several outputs.\n","$tag":21}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":21,"title":"# tools.Nop\n\n","comment":"\nOutpus the input verbatim.\n\nCan be useful  as a synchronisation point, or to  dispatch the same\ninput to several outputs.\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.Nop\n\n\nOutpus the input verbatim.\n\nCan be useful  as a synchronisation point, or to  dispatch the same\ninput to several outputs.\n","$tag":21}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":21,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.Nop.md","text":"# tools.Nop\n\n\nOutpus the input verbatim.\n\nCan be useful  as a synchronisation point, or to  dispatch the same\ninput to several outputs.\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var Tool = require(\"./tool\");\n\n/**\n * Add a `prefix` and/or a `suffix` to `text`.\n * \n * * __input__\n *     * {string} `text` - Text to surround with a `prefix` and `suffix`.\n * * __output__\n *     * {string} `text`  - The surrounded text.\n */\nmodule.exports = function(options) {\n    if (typeof options.prefix === 'undefined') options.prefix = '';\n    if (typeof options.suffix === 'undefined') options.suffix = '';\n\n    return Tool({\n        name: \"PrefixSuffix\",\n        input: \"text\",\n        output: \"text\",\n        exec: function(input, resolve, reject) {\n            resolve({text: options.prefix + input.text + options.suffix});\n        }\n    });\n};\n","$tag":23}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":23,"text":"var Tool = require(\"./tool\");\n\n/**\n * Add a `prefix` and/or a `suffix` to `text`.\n * \n * * __input__\n *     * {string} `text` - Text to surround with a `prefix` and `suffix`.\n * * __output__\n *     * {string} `text`  - The surrounded text.\n */\nmodule.exports = function(options) {\n    if (typeof options.prefix === 'undefined') options.prefix = '';\n    if (typeof options.suffix === 'undefined') options.suffix = '';\n\n    return Tool({\n        name: \"PrefixSuffix\",\n        input: \"text\",\n        output: \"text\",\n        exec: function(input, resolve, reject) {\n            resolve({text: options.prefix + input.text + options.suffix});\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\nAdd a `prefix` and/or a `suffix` to `text`.\n\n* __input__\n    * {string} `text` - Text to surround with a `prefix` and `suffix`.\n* __output__\n    * {string} `text`  - The surrounded text.\n","$tag":23}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":23,"title":"# tools.PrefixSuffix\n\n","comment":"\nAdd a `prefix` and/or a `suffix` to `text`.\n\n* __input__\n    * {string} `text` - Text to surround with a `prefix` and `suffix`.\n* __output__\n    * {string} `text`  - The surrounded text.\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.PrefixSuffix\n\n\nAdd a `prefix` and/or a `suffix` to `text`.\n\n* __input__\n    * {string} `text` - Text to surround with a `prefix` and `suffix`.\n* __output__\n    * {string} `text`  - The surrounded text.\n","$tag":23}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":23,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.PrefixSuffix.md","text":"# tools.PrefixSuffix\n\n\nAdd a `prefix` and/or a `suffix` to `text`.\n\n* __input__\n    * {string} `text` - Text to surround with a `prefix` and `suffix`.\n* __output__\n    * {string} `text`  - The surrounded text.\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var FS = require(\"fs\");\nvar Path = require(\"path\");\nvar Tool = require(\"./tool\");\n\n/**\n * Return an array of files' names contained in the folder `path`.\n * \n * * __input__\n *     * {string} `path` - Path from where to list existing files.\n * * __output__\n * * {array[string]} `files`  - Array of the  names of the files  in the\n         directory excluding `'.'` and `'..'`.\n */\nmodule.exports = function() {\n    return Tool({\n        name: \"ReadDir\",\n        input: \"path\",\n        output: \"files\",\n        exec: function(input, resolve, reject) {\n            FS.readdir(input.path, function(err, files) {\n                if (err) {\n                    reject(err);\n                } else {\n                    resolve({files: files.map(function(itm) {\n                        return Path.normalize(Path.join(input.path, itm));\n                    })});\n                }\n            });\n        }\n    });\n};\n","$tag":24}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":24,"text":"var FS = require(\"fs\");\nvar Path = require(\"path\");\nvar Tool = require(\"./tool\");\n\n/**\n * Return an array of files' names contained in the folder `path`.\n * \n * * __input__\n *     * {string} `path` - Path from where to list existing files.\n * * __output__\n * * {array[string]} `files`  - Array of the  names of the files  in the\n         directory excluding `'.'` and `'..'`.\n */\nmodule.exports = function() {\n    return Tool({\n        name: \"ReadDir\",\n        input: \"path\",\n        output: \"files\",\n        exec: function(input, resolve, reject) {\n            FS.readdir(input.path, function(err, files) {\n                if (err) {\n                    reject(err);\n                } else {\n                    resolve({files: files.map(function(itm) {\n                        return Path.normalize(Path.join(input.path, itm));\n                    })});\n                }\n            });\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\n* Return an array of files' names contained in the folder `path`.\n* \n* * __input__\n*     * {string} `path` - Path from where to list existing files.\n* * __output__\n* * {array[string]} `files`  - Array of the  names of the files  in the\n        directory excluding `'.'` and `'..'`.\n","$tag":24}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":24,"title":"# tools.ReadDir\n\n","comment":"\n* Return an array of files' names contained in the folder `path`.\n* \n* * __input__\n*     * {string} `path` - Path from where to list existing files.\n* * __output__\n* * {array[string]} `files`  - Array of the  names of the files  in the\n        directory excluding `'.'` and `'..'`.\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.ReadDir\n\n\n* Return an array of files' names contained in the folder `path`.\n* \n* * __input__\n*     * {string} `path` - Path from where to list existing files.\n* * __output__\n* * {array[string]} `files`  - Array of the  names of the files  in the\n        directory excluding `'.'` and `'..'`.\n","$tag":24}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":24,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.ReadDir.md","text":"# tools.ReadDir\n\n\n* Return an array of files' names contained in the folder `path`.\n* \n* * __input__\n*     * {string} `path` - Path from where to list existing files.\n* * __output__\n* * {array[string]} `files`  - Array of the  names of the files  in the\n        directory excluding `'.'` and `'..'`.\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var FS = require(\"fs\");\nvar Tool = require(\"./tool\");\n\n/**\n *\n * @param  {object|string}   options  -  As   a  string,  this   is  the\n * encoding. Otherwise, it  has the same meaning as the  argument in the\n * [`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function. Default is `utf8`.\n */\nmodule.exports = function(options) {\n    if (typeof options === 'undefined') options = 'utf8';\n\n    return Tool({\n        name: \"SaveText\",\n        input: [\"path\", \"text\"],\n        output: \"path\",\n        exec: function(input, resolve, reject) {\n            FS.writeFile(input.path, input.text, options, function(err, data) {\n                if (err) {\n                    reject(err);\n                } else {\n                    resolve({path: input.path});\n                }\n            });\n        }\n    });\n};\n","$tag":25}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":25,"text":"var FS = require(\"fs\");\nvar Tool = require(\"./tool\");\n\n/**\n *\n * @param  {object|string}   options  -  As   a  string,  this   is  the\n * encoding. Otherwise, it  has the same meaning as the  argument in the\n * [`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function. Default is `utf8`.\n */\nmodule.exports = function(options) {\n    if (typeof options === 'undefined') options = 'utf8';\n\n    return Tool({\n        name: \"SaveText\",\n        input: [\"path\", \"text\"],\n        output: \"path\",\n        exec: function(input, resolve, reject) {\n            FS.writeFile(input.path, input.text, options, function(err, data) {\n                if (err) {\n                    reject(err);\n                } else {\n                    resolve({path: input.path});\n                }\n            });\n        }\n    });\n};\n"}}
+,{"action":"OUT","tool":"extract-comment-4","output":{"comment":"\n\n@param  {object|string}   options  -  As   a  string,  this   is  the\nencoding. Otherwise, it  has the same meaning as the  argument in the\n[`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function. Default is `utf8`.\n","$tag":25}}
+,{"action":"IN","tool":"concat-7","input":{"$tag":25,"title":"# tools.SaveText\n\n","comment":"\n\n@param  {object|string}   options  -  As   a  string,  this   is  the\nencoding. Otherwise, it  has the same meaning as the  argument in the\n[`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function. Default is `utf8`.\n"}}
+,{"action":"OUT","tool":"concat-7","output":{"text":"# tools.SaveText\n\n\n\n@param  {object|string}   options  -  As   a  string,  this   is  the\nencoding. Otherwise, it  has the same meaning as the  argument in the\n[`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function. Default is `utf8`.\n","$tag":25}}
+,{"action":"IN","tool":"save-md-9","input":{"$tag":25,"path":"/home/tolokoban/Code/github/matis/dev/doc/tools.SaveText.md","text":"# tools.SaveText\n\n\n\n@param  {object|string}   options  -  As   a  string,  this   is  the\nencoding. Otherwise, it  has the same meaning as the  argument in the\n[`fs.readFile(filename[, options], callback)`](https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback) function. Default is `utf8`.\n"}}
+,{"action":"OUT","tool":"load-tool-code-3","output":{"text":"var FS = require(\"fs\");\nvar Tool = require(\"./tool\");\nvar Exec = require(\"child_process\").exec;\n\n/****************************************\n\n****************************************/\nmodule.exports = function(options) {\n    return Tool({\n        name: \"LoadStream\",\n        input: 'command',\n        output: [\"strout\", \"stderr\"],\n        exec: function(input, resolve, reject) {\n            Exec(input.command, options, function(err, stdout, stderr) {\n                if (err) return reject.call(this, err);\n                resolve.call(this, {stdout: stdout, stderr: stderr});\n            });\n        }\n    });\n};\n","$tag":27}}
+,{"action":"IN","tool":"extract-comment-4","input":{"$tag":27,"text":"var FS = require(\"fs\");\nvar Tool = require(\"./tool\");\nvar Exec = require(\"child_process\").exec;\n\n/****************************************\n\n****************************************/\nmodule.exports = function(options) {\n    return Tool({\n        name: \"LoadStream\",\n        input: 'command',\n        output: [\"strout\", \"stderr\"],\n        exec: function(input, resolve, reject) {\n            Exec(input.command, options, function(err, stdout, stderr) {\n                if (err) return reject.call(this, err);\n                resolve.call(this, {stdout: stdout, stderr: stderr});\n            });\n        }\n    });\n};\n"}}

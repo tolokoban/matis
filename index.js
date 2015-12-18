@@ -16,9 +16,11 @@ exports.tools = {
     LoadStream: require('./lib/tool.load-stream'),
     LoadText: require('./lib/tool.load-text'),
     MatchRegexp: require('./lib/tool.match-regexp'),
+    Nop: require('./lib/tool.nop'),
     PrefixSuffix: require('./lib/tool.prefix-suffix'),
     ReadDir: require('./lib/tool.read-dir'),
     SaveText: require('./lib/tool.save-text'),
+    ShellExec: require('./lib/tool.shell-exec'),
     SvgToDataURL: require('./lib/tool.svg-to-dataurl')
 };
 

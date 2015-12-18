@@ -8,7 +8,7 @@ function fixture(path) {
 var Matis = require("../index");
 
 describe('tools.LoadText', function() {
-    it('should reject not existent file with `errno: -4058`.', function(done) {
+    it('should reject not existent file with `code: ENOENT`.', function(done) {
         var loadText = Matis.tools.LoadText('utf-8');
         loadText.exec(
             {path: "notfound.txt"},
@@ -16,7 +16,7 @@ describe('tools.LoadText', function() {
                 done.fail("Should have failed because `notfound.txt` does not exist!");
             },
             function(err) {
-                //expect(err.errno).toBe(-4058);
+                expect(err.code).toBe('ENOENT');
                 done();
             }
         );
