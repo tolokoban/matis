@@ -39,6 +39,10 @@ i, em {
     font-variant: italic;
 }
 
+img {
+    max-width: 99vw;
+}
+
 /*****************************************/
 /* Header.                               */
 
@@ -143,15 +147,20 @@ body > section {
     bottom: 3rem;
     width: 100%;
     padding: 1rem .5rem 2rem .5rem;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     line-height: 1.2;
+}
+
+body > section > div {
+    margin: 0;
+    width: 100%;
 }
 
 @media (min-width: 800px) {
     body > section > div {
         margin: auto;
         width: 800px;
-        margin: 0;
     }
 }
 
