@@ -16,7 +16,7 @@ var delay = Matis.Tool({
  * When we send several inputs to a tool, the outputs must get in the same order.
  */
 describe('When we send several inputs to a tool', function() {
-    var foreach = Matis.tools.ForEach({input: "any", output: "any", tool: delay});
+    var foreach = Matis.tools.ForEach({output: "any", tool: delay});
     it('the outputs must get in the same order', function(done) {
         var list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
         foreach.exec(

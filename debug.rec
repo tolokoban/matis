@@ -1,0 +1,202 @@
+{
+  "list-tools-1": {
+    "input": [
+      "path"
+    ],
+    "output": [
+      "files"
+    ],
+    "links": {
+      "files": [
+        {
+          "target": "ForEach-10",
+          "input": "text"
+        }
+      ]
+    }
+  },
+  "ForEach-10": {
+    "input": [
+      "text"
+    ],
+    "output": [
+      "text"
+    ],
+    "links": {
+      "text": [
+        {
+          "target": "doc-path-11",
+          "input": "void"
+        }
+      ]
+    },
+    "children": [
+      "filter-tool-2"
+    ]
+  },
+  "doc-path-11": {
+    "input": [
+      "void"
+    ],
+    "output": [
+      "value"
+    ],
+    "links": {
+      "value": [
+        {
+          "target": "list-pages-12",
+          "input": "path"
+        }
+      ]
+    }
+  },
+  "list-pages-12": {
+    "input": [
+      "path"
+    ],
+    "output": [
+      "files"
+    ],
+    "links": {
+      "files": []
+    }
+  },
+  "filter-tool-2": {
+    "input": [
+      "text"
+    ],
+    "output": [
+      "yes",
+      "no"
+    ],
+    "links": {
+      "yes": [
+        {
+          "target": "load-tool-code-3",
+          "input": "path"
+        }
+      ],
+      "no": []
+    }
+  },
+  "load-tool-code-3": {
+    "input": [
+      "path"
+    ],
+    "output": [
+      "path",
+      "text"
+    ],
+    "links": {
+      "path": [
+        {
+          "target": "tool-name-5",
+          "input": "path"
+        }
+      ],
+      "text": [
+        {
+          "target": "extract-comment-4",
+          "input": "text"
+        }
+      ]
+    }
+  },
+  "tool-name-5": {
+    "input": [
+      "path"
+    ],
+    "output": [
+      "name"
+    ],
+    "links": {
+      "name": [
+        {
+          "target": "PrefixSuffix-6",
+          "input": "text"
+        },
+        {
+          "target": "md-filename-8",
+          "input": "text"
+        }
+      ]
+    }
+  },
+  "md-filename-8": {
+    "input": [
+      "text"
+    ],
+    "output": [
+      "text"
+    ],
+    "links": {
+      "text": [
+        {
+          "target": "save-md-9",
+          "input": "path"
+        }
+      ]
+    }
+  },
+  "save-md-9": {
+    "input": [
+      "path",
+      "text"
+    ],
+    "output": [
+      "path"
+    ],
+    "links": {
+      "path": []
+    }
+  },
+  "PrefixSuffix-6": {
+    "input": [
+      "text"
+    ],
+    "output": [
+      "text"
+    ],
+    "links": {
+      "text": [
+        {
+          "target": "concat-7",
+          "input": "title"
+        }
+      ]
+    }
+  },
+  "concat-7": {
+    "input": [
+      "title",
+      "comment"
+    ],
+    "output": [
+      "text"
+    ],
+    "links": {
+      "text": [
+        {
+          "target": "save-md-9",
+          "input": "text"
+        }
+      ]
+    }
+  },
+  "extract-comment-4": {
+    "input": [
+      "text"
+    ],
+    "output": [
+      "comment"
+    ],
+    "links": {
+      "comment": [
+        {
+          "target": "concat-7",
+          "input": "comment"
+        }
+      ]
+    }
+  }
+}

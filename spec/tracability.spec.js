@@ -1,6 +1,6 @@
 var Matis = require("../index");
 
-describe('Tracability', function() {    
+describe('Tracability', function() {
     describe('through `tools.Constant`', function() {
         var start = Matis.tools.Constant('START');
         ['foo', 'bar', 'toto'].forEach(function (tag, idx) {
@@ -36,11 +36,14 @@ describe('Tracability', function() {
             var concat = Matis.tools.ConcatStrings(["vowel", "consonant"]);
             start.link('yes', concat, 'vowel');
             start.link('no', concat, 'consonant');
-            
+
             var resolve = function(output) {
-                expect(output.text).toBe('iF');
-                expect(output.$tag).toEqual([1, 3]);
-                done();
+                if (output) {
+                    // Ignoring leak. Leaks are represented by a undefined `output`.
+                    expect(output.text).toBe('iF');
+                    expect(output.$tag).toEqual([1, 3]);
+                    done();
+                }
             };
 
             start.exec({$tag: 1, text: "F"}, resolve);

@@ -8,47 +8,46 @@ var log = function(prefix) {
     return Matis.tools.ConsoleLog(prefix);
 };
 
-var readdir = Matis.tools.ReadDir().name('readdir');
-var outputPath = Matis.tools.Constant(Path.join(__dirname, '../README.md')).name('outputPath');
-var savetext = Matis.tools.SaveText().name('savetext');
-var tplName = Matis.tools.Constant(Path.join(__dirname, '../README.tpl')).name('tplName');
-var tplContent = Matis.tools.LoadText('utf-8').name('tplContent');
-var filter = Matis.tools.MatchRegexp("tool\\.[a-z0-9\\-]+\\.js$").name('filter');
-var loadtext = Matis.tools.LoadText('utf-8').name('loadtext');
-var firstcomment = require('./inc/tool.first-comment')().name('firstcomment');
-var getname = require('./inc/tool.get-name')().name('getname');
-var mdtitle = require('./inc/tool.md-title')().name('mdtitle');
-var specialTags = require('./inc/tool.special-tags')().name('specialTags');
+var listTools = Matis.tools.ReadDir().name('list-tools');
+var filterTool = Matis.tools.MatchRegexp("tool\\.[a-z0-9\\-]+\\.js$").name('filter-tool');
+var loadToolCode = Matis.tools.LoadText('utf8').name('load-tool-code');
+var extractComment = require('./inc/tool.first-comment')().name('extract-comment');
+var toolName = require('./inc/tool.get-name')().name('tool-name');
+var makeTitle = Matis.tools.PrefixSuffix({
+    prefix: "# ", suffix: "\n\n"
+});
 var concat = Matis.tools.ConcatStrings(["title", "comment"]).name('concat');
-var finalconcat = Matis.tools.ConcatStrings(["template", "tools"]).name('finalconcat');
-var join = Matis.tools.Join('\n').name('join');
+var mdFilename = Matis.tools.PrefixSuffix({
+    prefix: Path.join(__dirname, "..", "doc") + '/',
+    suffix: '.md'
+}).name('md-filename');
+var saveMd = Matis.tools.SaveText('utf8').name('save-md');
 
-var foreach = Matis.tools.ForEach({
-    tool: filter,
-    input: "text",
+var foreachJS = Matis.tools.ForEach({
+    tool: filterTool,
     output: "text"
 });
 
+var docPath = Matis.tools.Constant(Path.join(__dirname, "..", "doc")).name('doc-path');
+var listPages = Matis.tools.ReadDir().name('list-pages');
+
+
 //-------------
 // Link tools.
-readdir.link(outputPath).link(savetext, 'path');
-readdir.link(tplName).link(tplContent).link('text', specialTags).link(finalconcat, 'template');
+listTools.link(foreachJS);
 
-readdir.link(foreach);
-filter.link('yes', loadtext).link('text', firstcomment).link(concat, 'comment');
-filter.link('yes', getname).link(mdtitle).link(concat, 'title');
+filterTool.link('yes', loadToolCode).link('text', extractComment).link(concat, 'comment');
+loadToolCode.link('path', toolName).link(makeTitle).link(concat, 'title');
+concat.link(saveMd, 'text');
+toolName.link(mdFilename).link(saveMd, 'path');
 
-foreach.link(join).link(finalconcat, 'tools');
-
-finalconcat.link(savetext, 'text');
-
-//concat.link(log('concat: '));
+foreachJS.link(docPath).link(listPages);
 
 //----------
 // Execute.
 Matis.Tool.debug(0);
 
-Matis.Record("debug.rec", readdir).exec(
+Matis.Record("debug.rec", listTools).exec(
     {path: Path.join(__dirname, "..", "lib")}
 );
 

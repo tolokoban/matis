@@ -25,6 +25,19 @@ describe('tools.ForEach', function() {
         });
     });
 
+    describe("less outputs than inputs", function() {
+        var matcher = Matis.tools.MatchRegexp('[aeiouy]');
+        var looper = Matis.tools.ForEach({ tool: matcher, output: 'yes' });
+        it('should be ok with ["f", "a", "b", "i", "e", "n"]', function(done) {
+            looper.exec({
+                text: ["f", "a", "b", "i", "e", "n"]
+            }, function(input) {
+                expect(input.yes).toEqual(['a', 'i', 'e']);
+                done();
+            });
+        });
+    });
+
     describe("input is empty", function() {
         var uppercase =  Matis.Tool({
             input: 'text', output: 'text',

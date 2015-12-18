@@ -32,8 +32,10 @@ describe('Process (1)', function() {
         loadBody.exec(
             { path: fixture('process1a.js') },
             function (output) {
-                expect(output.text).toEqual("/* Copyleft */var a = 27;// 2016-01-01");
-                done();
+                if (output) {
+                    expect(output.text).toEqual("/* Copyleft */var a = 27;// 2016-01-01");
+                    done();
+                }
             },
             function (err) {
                 done.fail(err);
@@ -41,4 +43,3 @@ describe('Process (1)', function() {
         );
     });
 });
-
