@@ -16,13 +16,33 @@
         </header>
         <section>
             <div>
-<p><em>Fast complex asynchronous processes made easy</em></p>
-<h1>Concepts</h1>
+<h1>tools.Constant</h1>
 <ul>
-<li><strong><a href="input-driven-exec.html">Input driven execution</a></strong>: processing starts as soon as input is ready.</li>
-<li><strong>Parallelism</strong>: tools are executed in parallel if it gives a time benefit. The result is a very fast process.</li>
-<li><strong>Inputs order preserved</strong>: even if a tool processes 3 inputs at the same time, outputs are post to the next tool in the same order.</li>
-<li><strong>Tracability</strong>: you always know which input has been needed to produce any output.</li>
+<li>Constants cas be used in many cases, such as default values.</li>
+<li></li>
+<li>
+<ul>
+<li><strong>argument</strong>: the constant value this tool will always emit.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><strong>input</strong></li>
+</ul>
+</li>
+<li>
+<pre><code>* {any} `void` - This input is just a trigger. It's value is ignored.
+</code></pre>
+</li>
+<li>
+<ul>
+<li><strong>output</strong></li>
+</ul>
+</li>
+<li>
+<pre><code>* {any} `value` - A constant value defined by the `value` argument.
+</code></pre>
+</li>
 </ul>
 
             </div>
