@@ -19,6 +19,9 @@ module.exports = function() {
 };
 
 
+var RX_EMPTY_LINE = new RegExp("^[ \t\\*=\\-]*$");
+
+
 /**
  * Comments often begin with spaces and an asterisk. Purification is the
  * process to remove all this garbage from the comment before converting
@@ -27,33 +30,12 @@ module.exports = function() {
 function purify(comment) {
     var lines = comment.split('\n');
     var line;
-    var loop = true;
-    var i = -1;
-    var k;    
-    var oldChar;
-    var curChar;
-    
-    while (loop) {
-        oldChar = null;
-        i++;
-        for (k = 0 ; k < lines.length ; k++) {
-            line = lines[k].trimRight();
-            if (line.length <= i) continue;
-            curChar = line.charAt(i);
-            if (oldChar === null) {
-                oldChar = curChar;
-            }
-            else if (curChar != oldChar) {
-                loop = false;
-                break;
-            }
-            if (curChar > ' ' && curChar != '*') {
-                loop = false;
-                break;
-            }
-        }
+    var i;
+
+    for (i = 0 ; i < lines.length ; i++) {
+        line = lines[i];
+        if (!RX_EMPTY_LINE.test(line)) break;
     }
-    return lines.map(function(line) {
-        return line.substr(i);
-    }).join('\n');
+
+    return lines.slice(i).join('\n');
 }

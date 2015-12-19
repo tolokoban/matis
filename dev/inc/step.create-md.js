@@ -12,7 +12,7 @@ module.exports = function() {
     });
     var concat = Matis.tools.ConcatStrings(["title", "comment"]).name('concat');
     var mdFilename = Matis.tools.PrefixSuffix({
-        prefix: Path.join(__dirname, "..", "doc") + '/',
+        prefix: Path.join(__dirname, "../../doc") + '/',
         suffix: '.md'
     }).name('md-filename');
     var saveMd = Matis.tools.SaveText('utf8').name('save-md');
