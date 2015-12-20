@@ -4,6 +4,7 @@
   "description": "Fast complex asynchrounous processes made easy.",
   "main": "index.js",
   "devDependencies": {
+    "highlightjs": "^8.7.0",
     "jasmine": "^2.4.1",
     "markdown-it": "^5.0.2"
   },
