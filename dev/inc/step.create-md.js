@@ -2,6 +2,31 @@ var Path = require("path");
 var Matis = require('../../index');
 
 module.exports = function() {
+    /*
+    var tools = Matis.Create(
+        {
+            ListTools: Matis.tools.ReadDir(),
+            FilterTool: Matis.tools.MatchRegexp("tool\\.[a-z0-9\\-]+\\.js$"),
+            LoadToolCode: Matis.tools.LoadText('utf8'),
+            ExtractComment: require('./tool.first-comment')(),
+            ToolName: require('./tool.get-name')(),
+            makeTitle: Matis.tools.PrefixSuffix({
+                prefix: "# ", suffix: "\n\n"
+            }),
+            Concat: Matis.tools.ConcatStrings(["title", "comment"]),
+            MdFilename: Matis.tools.PrefixSuffix({
+                prefix: Path.join(__dirname, "../../doc") + '/',
+                suffix: '.md'
+            }),
+            SaveMd: Matis.tools.SaveText('utf8'),
+            ForEachJS: Matis.tools.ForEach({
+                tool: filterTool,
+                output: "path"
+            })
+
+        }
+    );
+*/
     var listTools = Matis.tools.ReadDir().name('list-tools');
     var filterTool = Matis.tools.MatchRegexp("tool\\.[a-z0-9\\-]+\\.js$").name('filter-tool');
     var loadToolCode = Matis.tools.LoadText('utf8').name('load-tool-code');

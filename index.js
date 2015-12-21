@@ -1,4 +1,5 @@
 exports.Tool = require('./lib/tool');
+exports.Create = require('./lib/create');
 exports.Record = require('./lib/record');
 exports.Graphviz = require('./lib/graphviz');
 
