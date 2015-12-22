@@ -1,0 +1,20 @@
+code.language-js {
+    display: block;
+    font-size: 80%;
+    font-family: monospace;
+    padding: .5em 1em;
+    margin: .5em;
+    border-radius: .5em;
+    background: #000;
+    color: #eee;
+}
+
+code.language-js .hljs-keyword {
+    font-weight: 800;
+    color: magenta;
+}
+
+code.language-js .hljs-string {
+    font-weight: 800;
+    color: lightseagreen;
+}

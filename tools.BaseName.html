@@ -17,29 +17,29 @@
         <section>
             <div>
 <h1>tools.BaseName</h1>
+<hr>
+<h2>Matis.tools.BaseName()</h2>
+<p>Return the base name of <code>path</code>.</p>
+<h3>Inputs</h3>
 <ul>
-<li>Return the base name of <code>path</code>.</li>
-<li></li>
-<li>
-<ul>
-<li><strong>input</strong></li>
+<li>{string} <code>path</code> - Path to which we want to extract the basename.</li>
 </ul>
-</li>
-<li>
-<pre><code>* {string} `path` - Path to which we want to extract the basename.
-</code></pre>
-</li>
-<li>
-<ul>
-<li><strong>output</strong></li>
-</ul>
-</li>
-<li>
+<h3>Outputs</h3>
 <ul>
 <li>{string} <code>basename</code>  - Basename of <code>path</code>.</li>
 </ul>
-</li>
-</ul>
+<h3>Example</h3>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> Matis = <span class="hljs-built_in">require</span>(<span class="hljs-string">'matis'</span>);
+
+<span class="hljs-keyword">var</span> baseName = Matis.tools.BaseName();
+baseName.exec(
+    { path: __filename },
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">outputs</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Basename of "</span> + __filename + <span class="hljs-string">" is "</span> + outputs.basename);
+    }
+)
+</code></pre>
+<hr>
 
             </div>
         </section>

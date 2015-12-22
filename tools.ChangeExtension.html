@@ -17,6 +17,7 @@
         <section>
             <div>
 <h1>tools.ChangeExtension</h1>
+<hr>
 <p><strong>ChangeExtension(options)</strong></p>
 <p>An extension is the string after the last occurence of a dot (<code>.</code>) in a <code>path</code>.   This tool replaces  extensions with other one.</p>
 <h2>Options</h2>
@@ -31,7 +32,7 @@ For  instance <code>{less: 'css'}</code>  means that  the  tool must  replace ex
 <li><strong>path</strong>: The  path with the  new extension. If the  extension is not part of the <em>options</em>, the output is the same as the input.</li>
 </ul>
 <h2>Example</h2>
-<pre><code class="language-js">var change = Matis.tools.ChangeExtension({less: 'css', md: 'html'});
+<pre><code class="language-js"><span class="hljs-keyword">var</span> change = Matis.tools.ChangeExtension({less: <span class="hljs-string">'css'</span>, md: <span class="hljs-string">'html'</span>});
 </code></pre>
 <hr>
 
