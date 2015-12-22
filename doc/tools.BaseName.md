@@ -1,9 +1,26 @@
 # tools.BaseName
 
- * Return the base name of `path`.
- * 
- * * __input__
- *     * {string} `path` - Path to which we want to extract the basename.
- * * __output__
- * * {string} `basename`  - Basename of `path`.
- 
+**************************************
+## Matis.tools.BaseName()
+
+Return the base name of `path`.
+
+### Inputs
+* {string} `path` - Path to which we want to extract the basename.
+
+### Outputs
+* {string} `basename`  - Basename of `path`.
+
+### Example
+```js
+var Matis = require('matis');
+
+var baseName = Matis.tools.BaseName();
+baseName.exec(
+    { path: __filename },
+    function(outputs) {
+        console.log("Basename of " + __filename + " is " + outputs.basename);
+    }
+)
+```
+***************************************

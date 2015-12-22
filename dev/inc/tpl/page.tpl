@@ -16,7 +16,7 @@
         </header>
         <section>
             <div>
-${BODY}
+{{BODY}}
             </div>
         </section>
         <footer>

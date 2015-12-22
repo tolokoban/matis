@@ -1,5 +1,6 @@
 # tools.ChangeExtension
 
+**************************************
 __ChangeExtension(options)__
 
 An extension is the string after the last occurence of a dot (`.`) in a `path`.   This tool replaces  extensions with other one.

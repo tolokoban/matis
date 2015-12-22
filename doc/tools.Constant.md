@@ -1,5 +1,6 @@
 # tools.Constant
 
+
  * Constants cas be used in many cases, such as default values.
  * 
  * * __argument__: the constant value this tool will always emit.

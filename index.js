@@ -21,7 +21,6 @@ exports.tools = {
     PrefixSuffix: require('./lib/tool.prefix-suffix'),
     ReadDir: require('./lib/tool.read-dir'),
     SaveText: require('./lib/tool.save-text'),
-    ShellExec: require('./lib/tool.shell-exec'),
-    SvgToDataURL: require('./lib/tool.svg-to-dataurl')
+    ShellExec: require('./lib/tool.shell-exec')
 };
 

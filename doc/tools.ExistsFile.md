@@ -1,5 +1,6 @@
 # tools.ExistsFile
 
+
  * If  `path`  exists and  is  a  file, emit  it  on  the `yes`  output,
  * otherwise, emit it on the `no`.
  *

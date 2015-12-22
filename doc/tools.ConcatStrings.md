@@ -1,5 +1,6 @@
 # tools.ConcatStrings
 
+
  * Concat all the inputs in one output. 
  * 
  * @param {array[string]} inputs - Array inputs' names.

@@ -1,5 +1,6 @@
 # tools.Join
 
+
  * Join all elements of an array with a `glue`.
  * 
  * * __param__ 
