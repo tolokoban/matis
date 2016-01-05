@@ -17,33 +17,31 @@
         <section>
             <div>
 <h1>tools.Constant</h1>
+<hr>
+<p><strong>Constants(value)</strong></p>
+<p>Send a constant to its output <code>value</code>.</p>
+<h2>Options</h2>
+<p>The value to send as an output.</p>
+<h2>Inputs</h2>
 <ul>
-<li>Constants cas be used in many cases, such as default values.</li>
-<li></li>
-<li>
-<ul>
-<li><strong>argument</strong>: the constant value this tool will always emit.</li>
+<li><strong>void</strong>: can be any value. It is used only for trigerring.</li>
 </ul>
-</li>
-<li>
+<h2>Outputs</h2>
 <ul>
-<li><strong>input</strong></li>
+<li><strong>value</strong>: the constant value passed as option.</li>
 </ul>
-</li>
-<li>
-<pre><code>* {any} `void` - This input is just a trigger. It's value is ignored.
+<h2>Example</h2>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> tool = Matis.tools.Constant(<span class="hljs-number">27</span>);
+tool.exec(
+    {<span class="hljs-keyword">void</span>: <span class="hljs-string">"any kind on input"</span>},
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">outputs</span>) </span>{
+        <span class="hljs-keyword">if</span> (outputs.value !== <span class="hljs-number">27</span>) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-string">"IMPOSSIBLE!"</span>;
+        }
+    }
+);
 </code></pre>
-</li>
-<li>
-<ul>
-<li><strong>output</strong></li>
-</ul>
-</li>
-<li>
-<pre><code>* {any} `value` - A constant value defined by the `value` argument.
-</code></pre>
-</li>
-</ul>
+<hr>
 
             </div>
         </section>

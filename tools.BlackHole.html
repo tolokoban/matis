@@ -17,10 +17,32 @@
         <section>
             <div>
 <h1>tools.BlackHole</h1>
+<hr>
+<h2>Matis.tools.BlackHole()</h2>
+<p>All not  linked ouptuts can  trigger a resolution.  But <strong>BlackHole</strong> has no output. So, it is usefull for <strong>ForEach</strong> tool.</p>
+<h3>Inputs</h3>
 <ul>
-<li>All not  linked ouptuts can  trigger a resolution.  But <strong>BlackHole</strong></li>
-<li>has no output. It is usefull to ignore some outputs.</li>
+<li>{any} <code>any</code> - any kind of value which will be swallowed by the black hole.</li>
 </ul>
+<h2>Example</h2>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> process = Matis.Process(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.Path = Matis.tools.Constant(<span class="hljs-string">'mypath/subpath'</span>);
+  <span class="hljs-keyword">this</span>.List = Matis.tools.ReadDir();
+  <span class="hljs-keyword">this</span>.IsJavascript = Matis.tools.MatchRegexp(<span class="hljs-string">'\\.js$'</span>);
+  <span class="hljs-keyword">this</span>.IsTest = Matis.tools.MatchRegexp(<span class="hljs-string">'spec'</span>);
+  <span class="hljs-keyword">this</span>.Loop = Matis.tools.ForEach({
+    tool: <span class="hljs-keyword">this</span>.IsJavascript,
+    output: <span class="hljs-string">"no"</span>
+  });
+  <span class="hljs-keyword">this</span>.Garbage = Matis.tools.BlackHole();
+}, [
+  <span class="hljs-string">"Path &gt; List &gt; Loop"</span>,
+  <span class="hljs-string">"IsJavascript:yes &gt; IsTest"</span>,
+  <span class="hljs-string">"IsJavascript:no  &gt; Garbage"</span>
+]);
+</code></pre>
+<p>Without the BlackHole, this process would filter no file because all the <strong>no</strong> outputs are outputs of the <code>ForEach</code>.</p>
+<hr>
 
             </div>
         </section>
