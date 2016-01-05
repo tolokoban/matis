@@ -6,17 +6,20 @@ function fixture(path) {
 
 
 describe('tools.Constant', function() {
-    var tool = Matis.tools.Constant();
-    
     it('should provide expected inputs.', function() {
+        var tool = Matis.tools.Constant();    
         expect(tool.definition.input).toEqual(["void"]);
     });
     it('should provide expected outputs.', function() {
+        var tool = Matis.tools.Constant();    
         expect(tool.definition.output).toEqual(["value"]);
     });
     
-    it('should have some tests.', function(done) {
-        fail("No test defined yet!");
-        done();
+    it('should output a constant.', function(done) {
+        var tool = Matis.tools.Constant(27);
+        tool.exec({any: 4}, function(outputs) {
+            expect(outputs.value).toBe(27);
+            done();
+        });
     });
 });

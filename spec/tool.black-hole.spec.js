@@ -14,9 +14,4 @@ describe('tools.BlackHole', function() {
     it('should provide expected outputs.', function() {
         expect(tool.definition.output).toEqual([]);
     });
-    
-    it('should have some tests.', function(done) {
-        fail("No test defined yet!");
-        done();
-    });
 });

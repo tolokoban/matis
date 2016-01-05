@@ -1,10 +1,16 @@
 # tools.PrefixSuffix
 
+**************************************
+## tools.PrefixSuffix({prefix: ..., suffix: ...})
 
- * Add a `prefix` and/or a `suffix` to `text`.
- * 
- * * __input__
- *     * {string} `text` - Text to surround with a `prefix` and `suffix`.
- * * __output__
- *     * {string} `text`  - The surrounded text.
- 
+Surround `text`with a `prefix` and a `suffix`.
+
+### Inputs
+
+* {string} __text__: Text to surround with a `prefix` and `suffix`.
+
+### Outputs
+
+* {string} __text__: The surrounded text.
+
+****************************************
