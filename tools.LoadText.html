@@ -11,17 +11,22 @@
 
     <body>
         <header>
-            <h1>Matis</h1>
+            <h1><a href="index.html">Matis</a> <span class='version'>0.1.0</span></h1>
             <h2><span class='first-letter'>M</span>ulti-level <span class='first-letter'>A</span>synchrounous <span class='first-letter'>T</span>ools <span class='first-letter'>I</span>nterconnection <span class='first-letter'>S</span>ystem.</h2>
         </header>
         <section>
             <div>
 <h1>tools.LoadText</h1>
+<p>Load a text from a <code>path</code>.</p>
+<h2>Options</h2>
+<p>As a string, this is the encoding. Otherwise, it has the same meaning as the argument in the <a href="https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback"><code>fs.readFile(filename[, options], callback)</code></a> function of NodeJS.</p>
+<h2>Inputs</h2>
 <ul>
-<li></li>
-<li>@param  {object|string}   options  -  As   a  string,  this   is  the</li>
-<li>encoding. Otherwise, it  has the same meaning as the  argument in the</li>
-<li><a href="https://nodejs.org/dist/latest-v4.x/docs/api/fs.html#fs_fs_readfile_filename_options_callback"><code>fs.readFile(filename[, options], callback)</code></a> function.</li>
+<li><strong>path</strong> {string}: path of the file to read.</li>
+</ul>
+<h2>Outputs</h2>
+<ul>
+<li><strong>text</strong> {text}: resulting text.</li>
 </ul>
 
             </div>

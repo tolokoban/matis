@@ -11,26 +11,25 @@
 
     <body>
         <header>
-            <h1>Matis</h1>
+            <h1><a href="index.html">Matis</a> <span class='version'>0.1.0</span></h1>
             <h2><span class='first-letter'>M</span>ulti-level <span class='first-letter'>A</span>synchrounous <span class='first-letter'>T</span>ools <span class='first-letter'>I</span>nterconnection <span class='first-letter'>S</span>ystem.</h2>
         </header>
         <section>
             <div>
 <h1>tools.ConsoleLog</h1>
-<hr>
-<p><strong>ConsoleLog(options)</strong></p>
-<p>This tool is used for debug  purpose. The input is displayed with the <code>logger.log()</code> function, then sent to the output unchanged.</p>
+<p>This tool is used for debug  purpose. By default, the input is displayed with the standard <code>logger.log()</code> function, then sent to the output unchanged.
+You can provide your own logguer.</p>
 <h2>Options</h2>
 <ul>
-<li><strong>prefix</strong> {optional string}: a string that prepend each log. Default is <code>&quot;&quot;</code>.</li>
-<li><strong>logger</strong> {optional object}: an object that provides a <code>log(msg)</code>function. Default is the standard console.
-By default, <code>logger</code> is equal to <code>console</code>.</li>
+<li><strong>prefix</strong> {<em>optional</em> string}: a string that prepend each log. Default is <code>&quot;&quot;</code>.</li>
+<li><strong>logger</strong> {<em>optional</em> object}: an object that provides a <code>log(msg)</code>function. Default is the standard console.
+By default, <code>logger</code> is equal to the standard javascript <code>console</code> object.</li>
 </ul>
 <h2>Inputs</h2>
 <ul>
 <li><strong>any</strong> {string}: the text to sent to the <code>logger</code>.</li>
 </ul>
-<h2>Outpus</h2>
+<h2>Outputs</h2>
 <ul>
 <li><strong>any</strong> {string}: the same text as the one entered.</li>
 </ul>
@@ -41,7 +40,6 @@ By default, <code>logger</code> is equal to <code>console</code>.</li>
 <span class="hljs-keyword">var</span> tool3 = Matis.tools.ConsoleLog(logger);
 <span class="hljs-keyword">var</span> tool4 = Matis.tools.ConsoleLog(<span class="hljs-string">'&gt; '</span>, logger);
 </code></pre>
-<hr>
 
             </div>
         </section>

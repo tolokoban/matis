@@ -11,36 +11,23 @@
 
     <body>
         <header>
-            <h1>Matis</h1>
+            <h1><a href="index.html">Matis</a> <span class='version'>0.1.0</span></h1>
             <h2><span class='first-letter'>M</span>ulti-level <span class='first-letter'>A</span>synchrounous <span class='first-letter'>T</span>ools <span class='first-letter'>I</span>nterconnection <span class='first-letter'>S</span>ystem.</h2>
         </header>
         <section>
             <div>
 <h1>tools.ReadDir</h1>
+<p>Return an array of files' names contained in the folder <code>path</code>.</p>
+<h2>Inputs</h2>
 <ul>
-<li>Return an array of files' names contained in the folder <code>path</code>.</li>
-<li></li>
-<li>
+<li><strong>path</strong> {string}: path from where to list existing files.</li>
+</ul>
+<h2>Outputs</h2>
 <ul>
-<li><strong>input</strong></li>
+<li><strong>files</strong> {array[string]}: array of the  names of the files in the directory excluding <code>'.'</code> and <code>'..'</code>.</li>
 </ul>
-</li>
-<li>
-<pre><code>* {string} `path` - Path from where to list existing files.
-</code></pre>
-</li>
-<li>
-<ul>
-<li><strong>output</strong></li>
-</ul>
-</li>
-<li>
-<ul>
-<li>{array[string]} <code>files</code>  - Array of the  names of the files  in the
-directory excluding <code>'.'</code> and <code>'..'</code>.</li>
-</ul>
-</li>
-</ul>
+<h2>See also</h2>
+<p><a href="tools.ForEach.html">Matis.tools.ForEach</a></p>
 
             </div>
         </section>

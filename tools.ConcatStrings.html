@@ -11,32 +11,34 @@
 
     <body>
         <header>
-            <h1>Matis</h1>
+            <h1><a href="index.html">Matis</a> <span class='version'>0.1.0</span></h1>
             <h2><span class='first-letter'>M</span>ulti-level <span class='first-letter'>A</span>synchrounous <span class='first-letter'>T</span>ools <span class='first-letter'>I</span>nterconnection <span class='first-letter'>S</span>ystem.</h2>
         </header>
         <section>
             <div>
 <h1>tools.ConcatStrings</h1>
+<p>Concat all the inputs in one output.</p>
+<h2>Inputs</h2>
+<p>Inputs depend on the options passed in the constructor.</p>
+<h2>Outputs</h2>
 <ul>
-<li>Concat all the inputs in one output.</li>
-<li></li>
-<li>@param {array[string]} inputs - Array inputs' names.</li>
-<li></li>
-<li>
-<ul>
-<li><strong>input</strong>: Thisn tool has a variable number of inputs specified by the <code>inputs</code> argument.</li>
+<li>{string} <strong>text</strong>: the resulting concatenated text.</li>
 </ul>
-</li>
-<li>
-<ul>
-<li><strong>output</strong></li>
-</ul>
-</li>
-<li>
-<pre><code>* {string} `text` - The resulting concatenated string.
+<h2>Options</h2>
+<p>Array of inputs in the order you want them to be concatenated.</p>
+<h2>Example</h2>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> concat = Matis.tools.ConcatString([<span class="hljs-string">'prefix'</span>, <span class="hljs-string">'radical'</span>, <span class="hljs-string">'suffix'</span>]);
+concat.exec(
+  {
+    prefix: <span class="hljs-string">"&lt;"</span>,
+    radical: <span class="hljs-string">"my-tag"</span>,
+    suffix: <span class="hljs-string">"&gt;"</span>
+  },
+  <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">outputs</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(outputs.text);
+  }
+);
 </code></pre>
-</li>
-</ul>
 
             </div>
         </section>

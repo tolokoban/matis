@@ -11,43 +11,35 @@
 
     <body>
         <header>
-            <h1>Matis</h1>
+            <h1><a href="index.html">Matis</a> <span class='version'>0.1.0</span></h1>
             <h2><span class='first-letter'>M</span>ulti-level <span class='first-letter'>A</span>synchrounous <span class='first-letter'>T</span>ools <span class='first-letter'>I</span>nterconnection <span class='first-letter'>S</span>ystem.</h2>
         </header>
         <section>
             <div>
 <h1>tools.Join</h1>
+<p>Join all elements of an array with a <code>glue</code>.</p>
+<h2>Options</h2>
+<p>You can set a optional string to serve as a glue between array's elements.</p>
+<h2>Inputs</h2>
 <ul>
-<li>Join all elements of an array with a <code>glue</code>.</li>
-<li></li>
-<li>
-<ul>
-<li><strong>param</strong></li>
+<li><strong>array</strong> {array[string]}: array of strings whom elements you want to join.</li>
 </ul>
-</li>
-<li>
-<pre><code>* {string} glue - Text to add between two elements of the `array`.
+<h2>Outputs</h2>
+<ul>
+<li><strong>text</strong> {string}: joined elements separated with <code>glue</code> or en empty string if <code>glue</code> is undefined.</li>
+</ul>
+<h2>Example</h2>
+<pre><code class="language-js">it(<span class="hljs-string">'should join with a glue.'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>) </span>{
+    <span class="hljs-keyword">var</span> tool = Matis.tools.Join(<span class="hljs-string">","</span>);
+    tool.exec(
+        {array: [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>]},
+        <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">outputs</span>) </span>{
+            expect(outputs.text).toBe(<span class="hljs-string">"a,b,c"</span>);
+            done();
+        }
+    );
+});
 </code></pre>
-</li>
-<li>
-<ul>
-<li><strong>input</strong></li>
-</ul>
-</li>
-<li>
-<pre><code>* {array[string]} `array` - Array of strings to join with the `glue`.
-</code></pre>
-</li>
-<li>
-<ul>
-<li><strong>output</strong></li>
-</ul>
-</li>
-<li>
-<pre><code>* {string} `text` - The resulting joined array..
-</code></pre>
-</li>
-</ul>
 
             </div>
         </section>

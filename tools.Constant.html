@@ -11,24 +11,22 @@
 
     <body>
         <header>
-            <h1>Matis</h1>
+            <h1><a href="index.html">Matis</a> <span class='version'>0.1.0</span></h1>
             <h2><span class='first-letter'>M</span>ulti-level <span class='first-letter'>A</span>synchrounous <span class='first-letter'>T</span>ools <span class='first-letter'>I</span>nterconnection <span class='first-letter'>S</span>ystem.</h2>
         </header>
         <section>
             <div>
 <h1>tools.Constant</h1>
-<hr>
-<p><strong>Constants(value)</strong></p>
 <p>Send a constant to its output <code>value</code>.</p>
 <h2>Options</h2>
 <p>The value to send as an output.</p>
 <h2>Inputs</h2>
 <ul>
-<li><strong>void</strong>: can be any value. It is used only for trigerring.</li>
+<li><strong>void</strong> {any}: can be any value. It is used only for trigerring.</li>
 </ul>
 <h2>Outputs</h2>
 <ul>
-<li><strong>value</strong>: the constant value passed as option.</li>
+<li><strong>value</strong> {any}: the constant value passed as option.</li>
 </ul>
 <h2>Example</h2>
 <pre><code class="language-js"><span class="hljs-keyword">var</span> tool = Matis.tools.Constant(<span class="hljs-number">27</span>);
@@ -41,7 +39,6 @@ tool.exec(
     }
 );
 </code></pre>
-<hr>
 
             </div>
         </section>

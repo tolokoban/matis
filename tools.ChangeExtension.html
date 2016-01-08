@@ -11,30 +11,27 @@
 
     <body>
         <header>
-            <h1>Matis</h1>
+            <h1><a href="index.html">Matis</a> <span class='version'>0.1.0</span></h1>
             <h2><span class='first-letter'>M</span>ulti-level <span class='first-letter'>A</span>synchrounous <span class='first-letter'>T</span>ools <span class='first-letter'>I</span>nterconnection <span class='first-letter'>S</span>ystem.</h2>
         </header>
         <section>
             <div>
 <h1>tools.ChangeExtension</h1>
-<hr>
-<p><strong>ChangeExtension(options)</strong></p>
 <p>An extension is the string after the last occurence of a dot (<code>.</code>) in a <code>path</code>.   This tool replaces  extensions with other one.</p>
 <h2>Options</h2>
 <p>Object describing which changes have to be made.
-For  instance <code>{less: 'css'}</code>  means that  the  tool must  replace extensions <code>.less</code> with <code>.css</code>.</p>
+For  instance <code>{less: 'css', md: 'html'}</code>  means that  the  tool must  replace extensions <code>.less</code> with <code>.css</code> and <code>.md</code> with <code>.html</code>.</p>
 <h2>Input</h2>
 <ul>
-<li><strong>path</strong>: The path of which we want to change the extension.</li>
+<li>{string} <strong>path</strong>: The path of which we want to change the extension.</li>
 </ul>
 <h2>Output</h2>
 <ul>
-<li><strong>path</strong>: The  path with the  new extension. If the  extension is not part of the <em>options</em>, the output is the same as the input.</li>
+<li>{string} <strong>path</strong>: The  path with the  new extension. If the  extension is not part of the <em>options</em>, the output is the same as the input.</li>
 </ul>
 <h2>Example</h2>
 <pre><code class="language-js"><span class="hljs-keyword">var</span> change = Matis.tools.ChangeExtension({less: <span class="hljs-string">'css'</span>, md: <span class="hljs-string">'html'</span>});
 </code></pre>
-<hr>
 
             </div>
         </section>

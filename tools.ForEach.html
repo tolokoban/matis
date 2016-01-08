@@ -11,31 +11,55 @@
 
     <body>
         <header>
-            <h1>Matis</h1>
+            <h1><a href="index.html">Matis</a> <span class='version'>0.1.0</span></h1>
             <h2><span class='first-letter'>M</span>ulti-level <span class='first-letter'>A</span>synchrounous <span class='first-letter'>T</span>ools <span class='first-letter'>I</span>nterconnection <span class='first-letter'>S</span>ystem.</h2>
         </header>
         <section>
             <div>
 <h1>tools.ForEach</h1>
+<p>This is a powerful tool that loops on each element of an array an produces arrays.</p>
+<h2>Options</h2>
 <ul>
-<li>
-<ul>
-<li><strong>argument</strong>:</li>
+<li><strong>tool</strong> {Matis.Tool}: the tool that will process each element one after the other.</li>
+<li><strong>output</strong> {array[string]}: Array of outputs' names. They all will be arrays.</li>
 </ul>
-</li>
-<li>
-<pre><code>* {array[string]} `input`: Array of inputs' names. The first one is the array over which we will loop.
+<h2>Inputs</h2>
+<p>Inputs are the same as inputs of <code>tool</code>, except that the first one must be an array.</p>
+<h2>Example</h2>
+<h3>Several outputs</h3>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> isJS = Matis.tools.MatchRegexp(<span class="hljs-string">'\\.js$'</span>);
+<span class="hljs-keyword">var</span> looper = Matis.tools.ForEach({ tool: isJS, output: [<span class="hljs-string">"yes"</span>, <span class="hljs-string">"no"</span>]});
+looper.exec(
+    { text: [<span class="hljs-string">"a.js"</span>, <span class="hljs-string">"b.html"</span>, <span class="hljs-string">"c.js"</span>, <span class="hljs-string">"d.js"</span>] },
+    <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">outputs</span>) </span>{
+        <span class="hljs-built_in">console</span>.log(outputs);
+    }
+);
 </code></pre>
-</li>
-<li>
-<pre><code>* {array[string]} `output`: Array of outputs' names. They all are arrays.
+<p><code>outputs</code> will be equal to:</p>
+<pre><code class="language-js">{
+    yes: [<span class="hljs-string">"a.js"</span>, <span class="hljs-string">"c.js"</span>, <span class="hljs-string">"d.js"</span>],
+    no: [<span class="hljs-string">"b.html"</span>]
+}
 </code></pre>
-</li>
-<li>
-<pre><code>* {Tool} `tool`:
+<h3>Using black-holes</h3>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> process = Matis.Process(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.Path = Matis.tools.Constant(<span class="hljs-string">'mypath/subpath'</span>);
+  <span class="hljs-keyword">this</span>.List = Matis.tools.ReadDir();
+  <span class="hljs-keyword">this</span>.IsJavascript = Matis.tools.MatchRegexp(<span class="hljs-string">'\\.js$'</span>);
+  <span class="hljs-keyword">this</span>.IsTest = Matis.tools.MatchRegexp(<span class="hljs-string">'spec'</span>);
+  <span class="hljs-keyword">this</span>.Loop = Matis.tools.ForEach({
+    tool: <span class="hljs-keyword">this</span>.IsJavascript,
+    output: <span class="hljs-string">"no"</span>
+  });
+  <span class="hljs-keyword">this</span>.Garbage = Matis.tools.BlackHole();
+}, [
+  <span class="hljs-string">"Path &gt; List &gt; Loop"</span>,
+  <span class="hljs-string">"IsJavascript:yes &gt; IsTest"</span>,
+  <span class="hljs-string">"IsJavascript:no  &gt; Garbage"</span>
+]);
 </code></pre>
-</li>
-</ul>
+<p>Without the BlackHole, this process would filter no file because all the <strong>no</strong> outputs are outputs of the <code>ForEach</code>.</p>
 
             </div>
         </section>

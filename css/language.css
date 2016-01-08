@@ -1,20 +1,42 @@
 code.language-js {
     display: block;
-    font-size: 80%;
-    font-family: monospace;
+    font-size: 90%;
+    font-family: vera-mono, monospace, sans-serif;
     padding: .5em 1em;
     margin: .5em;
     border-radius: .5em;
-    background: #000;
-    color: #eee;
+    background: #ccc5bb;
+    background: linear-gradient(to right, #ccc5bb, transparent);
+    color: #000;
+    line-height: 1.4;
+    overflow-x: auto;
 }
 
 code.language-js .hljs-keyword {
     font-weight: 800;
-    color: magenta;
+    color: #00A;
+}
+
+code.language-js .hljs-function {
+    font-weight: 300;
+    color: #00A;
 }
 
 code.language-js .hljs-string {
-    font-weight: 800;
-    color: lightseagreen;
+    font-weight: 400;
+    color: #070;
 }
+
+code.language-js .hljs-comment {
+    color: #777;
+}
+
+code.language-js .hljs-built_in {
+    color: magenta;
+}
+
+code.language-js .hljs-number {
+    color: #840;
+    font-weight: 800;
+}
+

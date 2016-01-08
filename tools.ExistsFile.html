@@ -11,38 +11,21 @@
 
     <body>
         <header>
-            <h1>Matis</h1>
+            <h1><a href="index.html">Matis</a> <span class='version'>0.1.0</span></h1>
             <h2><span class='first-letter'>M</span>ulti-level <span class='first-letter'>A</span>synchrounous <span class='first-letter'>T</span>ools <span class='first-letter'>I</span>nterconnection <span class='first-letter'>S</span>ystem.</h2>
         </header>
         <section>
             <div>
 <h1>tools.ExistsFile</h1>
+<p>If <code>path</code> exists and is a file, send  it on the <code>yes</code> output, otherwise, send it on the <code>no</code>.</p>
+<h2>Inputs</h2>
 <ul>
-<li>If  <code>path</code>  exists and  is  a  file, emit  it  on  the <code>yes</code>  output,</li>
-<li>otherwise, emit it on the <code>no</code>.</li>
-<li></li>
-<li>
-<ul>
-<li><strong>input</strong></li>
+<li><strong>path</strong> {string}: path of the file we want to know if it exists.</li>
 </ul>
-</li>
-<li>
-<pre><code>* {string} path - Path of the file we want know if it exists.
-</code></pre>
-</li>
-<li>
+<h2>Outputs</h2>
 <ul>
-<li><strong>output</strong></li>
-</ul>
-</li>
-<li>
-<pre><code>* {string} yes - Path of the file if it exists.
-</code></pre>
-</li>
-<li>
-<pre><code>* {string} no - Path of the file if it does not exist.
-</code></pre>
-</li>
+<li><strong>yes</strong> {string}: path of the file if it exists.</li>
+<li><strong>no</strong>{string}: path of the file if it does not exist.</li>
 </ul>
 
             </div>

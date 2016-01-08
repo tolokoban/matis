@@ -11,16 +11,30 @@
 
     <body>
         <header>
-            <h1>Matis</h1>
+            <h1><a href="index.html">Matis</a> <span class='version'>0.1.0</span></h1>
             <h2><span class='first-letter'>M</span>ulti-level <span class='first-letter'>A</span>synchrounous <span class='first-letter'>T</span>ools <span class='first-letter'>I</span>nterconnection <span class='first-letter'>S</span>ystem.</h2>
         </header>
         <section>
             <div>
 <h1>tools.MatchRegexp</h1>
+<p>Match <code>text</code> against a regexp <code>pattern</code>. The output can be <code>yes</code>or <code>no</code>.</p>
+<h2>Options</h2>
 <ul>
-<li>This tool is used for debug  purpose. The input is displayed with the</li>
-<li><code>console.log()</code> function, then sent to the output unchanged.</li>
+<li><strong>pattern</strong> {string}: regular expression pattern.</li>
+<li><strong>flags</strong> {optional string}: flags for this regexp.</li>
 </ul>
+<h2>Inputs</h2>
+<ul>
+<li><strong>text</strong> {string}: the string to test.</li>
+</ul>
+<h2>Outputs</h2>
+<ul>
+<li><strong>yes</strong> {string}: the input string if it matches.</li>
+<li><strong>no</strong> {string}: the input string if it doen not match</li>
+</ul>
+<h2>Example</h2>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> isNumber = Matis.tools.MatchRegexp(<span class="hljs-string">'[0-9]+'</span>);
+</code></pre>
 
             </div>
         </section>

@@ -11,18 +11,16 @@
 
     <body>
         <header>
-            <h1>Matis</h1>
+            <h1><a href="index.html">Matis</a> <span class='version'>0.1.0</span></h1>
             <h2><span class='first-letter'>M</span>ulti-level <span class='first-letter'>A</span>synchrounous <span class='first-letter'>T</span>ools <span class='first-letter'>I</span>nterconnection <span class='first-letter'>S</span>ystem.</h2>
         </header>
         <section>
             <div>
 <h1>tools.BlackHole</h1>
-<hr>
-<h2>Matis.tools.BlackHole()</h2>
 <p>All not  linked ouptuts can  trigger a resolution.  But <strong>BlackHole</strong> has no output. So, it is usefull for <strong>ForEach</strong> tool.</p>
-<h3>Inputs</h3>
+<h2>Inputs</h2>
 <ul>
-<li>{any} <code>any</code> - any kind of value which will be swallowed by the black hole.</li>
+<li>{any} <strong>any</strong> - any kind of value which will be swallowed by the black hole.</li>
 </ul>
 <h2>Example</h2>
 <pre><code class="language-js"><span class="hljs-keyword">var</span> process = Matis.Process(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
@@ -42,7 +40,6 @@
 ]);
 </code></pre>
 <p>Without the BlackHole, this process would filter no file because all the <strong>no</strong> outputs are outputs of the <code>ForEach</code>.</p>
-<hr>
 
             </div>
         </section>
