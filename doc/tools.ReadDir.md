@@ -1,11 +1,15 @@
 # tools.ReadDir
 
 
- * Return an array of files' names contained in the folder `path`.
- * 
- * * __input__
- *     * {string} `path` - Path from where to list existing files.
- * * __output__
- * * {array[string]} `files`  - Array of the  names of the files  in the
-         directory excluding `'.'` and `'..'`.
+Return an array of files' names contained in the folder `path`.
+
+## Inputs
+* __path__ {string}: path from where to list existing files.
+
+## Outputs
+* __files__ {array[string]}: array of the  names of the files in the directory excluding `'.'` and `'..'`.
+
+## See also
+[Matis.tools.ForEach](tools.ForEach.html)
+
  

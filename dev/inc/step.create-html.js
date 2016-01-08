@@ -1,6 +1,8 @@
 var Path = require("path");
 var Matis = require('../../index');
 var Template = require("./template");
+var Package = require("../../package.json");
+
 
 module.exports = function() {
     var process = Matis.Process(function() {
@@ -17,7 +19,7 @@ module.exports = function() {
         this.ChangeExtension = Matis.tools.ChangeExtension({md: 'html'});
         this.Combine = {
             input: "body", output: "text", exec: function(inputs, resolve) {
-                resolve({text: Template.file('page.tpl', {BODY: inputs.body}).out});
+                resolve({text: Template.file('page.tpl', {VERSION: Package.version, BODY: inputs.body}).out});
             }
         };
         this.SaveHTML = Matis.tools.SaveText('utf8');

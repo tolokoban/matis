@@ -13,10 +13,13 @@ describe('tools.ShellExec', function() {
         expect(tool.definition.input).toEqual(["command"]);
     });
     it('should provide expected outputs.', function() {
-        expect(tool.definition.output).toEqual(["strout","stderr"]);
+        expect(tool.definition.output).toEqual(["strout","stderr","command"]);
     });
 
-    [['', '']].forEach(function (testcase) {
+    [
+        ['', ''],
+        ['Yes', 'No']
+    ].forEach(function (testcase) {
         it('should read stdout and stderr.', function(done) {
             var stdout = testcase[0];
             var stderr = testcase[1];
@@ -25,7 +28,7 @@ describe('tools.ShellExec', function() {
                 {command: 'node echo.js "' + stdout + '" "' + stderr + '"'},
                 function(outputs) {
                     expect(outputs.stdout.trim()).toBe(stdout);
-                    expect(outputs.stderr.trim()).toBe(stderr);                    
+                    expect(outputs.stderr.trim()).toBe(stderr);
                     done();
                 },
                 function(err) {

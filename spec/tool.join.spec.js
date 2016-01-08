@@ -6,17 +6,35 @@ function fixture(path) {
 
 
 describe('tools.Join', function() {
-    var tool = Matis.tools.Join();
-    
+
     it('should provide expected inputs.', function() {
+        var tool = Matis.tools.Join();
         expect(tool.definition.input).toEqual(["array"]);
     });
     it('should provide expected outputs.', function() {
+        var tool = Matis.tools.Join();
         expect(tool.definition.output).toEqual(["text"]);
     });
-    
-    it('should have some tests.', function(done) {
-        fail("No test defined yet!");
-        done();
+
+    it('should join with a glue.', function(done) {
+        var tool = Matis.tools.Join(",");
+        tool.exec(
+            {array: ['a', 'b', 'c']},
+            function(outputs) {
+                expect(outputs.text).toBe("a,b,c");
+                done();
+            }
+        );
+    });
+
+    it('should join without any glue.', function(done) {
+        var tool = Matis.tools.Join();
+        tool.exec(
+            {array: ['a', 'b', 'c']},
+            function(outputs) {
+                expect(outputs.text).toBe("abc");
+                done();
+            }
+        );
     });
 });

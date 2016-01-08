@@ -1,10 +1,10 @@
 # tools.DirName
 
 
- * Return the base name of `path`.
- * 
- * * __input__
- *     * {string} `path` - Path to which we want to extract the basename.
- * * __output__
- * * {string} `basename`  - Basename of `path`.
- 
+Return the base name of `path`.
+
+## Inputs
+* __path__ {string}: path from which we want to extract the basename.
+
+## Outputs
+* __basename__ {string}: basename of `path`.

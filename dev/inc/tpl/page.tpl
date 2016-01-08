@@ -11,7 +11,7 @@
 
     <body>
         <header>
-            <h1>Matis</h1>
+            <h1><a href="index.html">Matis</a> <span class='version'>{{VERSION}}</span></h1>
             <h2><span class='first-letter'>M</span>ulti-level <span class='first-letter'>A</span>synchrounous <span class='first-letter'>T</span>ools <span class='first-letter'>I</span>nterconnection <span class='first-letter'>S</span>ystem.</h2>
         </header>
         <section>

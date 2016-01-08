@@ -10,21 +10,21 @@ _Fast complex asynchronous processes made easy_
 
 # Built-in tools
 
-* [__`BaseName`__](tools.BaseName.html): basename of a path.
-* [__`BlackHole`__](tools.BlackHole.html): swallow garbaged outputs.
-* [__`ChangeExtension`__](tools.ChangeExtension.html): change extension of a filename.
-* [__`ConcatStrings`__](tools.ConcatStrings.html): concat many strings.
-* [__`ConsoleLog`__](tools.ConsoleLog.html): log messages for debug.
-* [__`Constant`__](tools.Constant.html): outputs a constant.
-* [__`DirName`__](tools.DirName.html): dirname of a path.
-* [__`ExistsFile`__](tools.ExistsFile.html): test file existence.
-* [__`ForEach`__](tools.ForEach.html): loop on each element of an array.
-* [__`Join`__](tools.Join.html): join elements of an array.
-* [__`LoadStream`__](tools.LoadStream.html): load file as a stream.
-* [__`LoadText`__](tools.LoadText.html): load file as a string.
-* [__`MatchRegexp`__](tools.MatchRegexp.html): match a string against a regular expression.
-* [__`Nop`__](tools.Nop.html): No operation.
-* [__`PrefixSuffix`__](tools.PrefixSuffix.html): surround a string with two constants.
-* [__`ReadDir`__](tools.ReadDir.html): list all files and subdirectories in a directory.
-* [__`SaveText`__](tools.SaveText.html): store string into a file.
-* [__`ShellExec`__](tools.ShellExec.html): execute a shell command.
+* [__BaseName__](tools.BaseName.html): basename of a path.
+* [__BlackHole__](tools.BlackHole.html): swallow garbaged outputs.
+* [__ChangeExtension__](tools.ChangeExtension.html): change extension of a filename.
+* [__ConcatStrings__](tools.ConcatStrings.html): concat many strings.
+* [__ConsoleLog__](tools.ConsoleLog.html): log messages for debug.
+* [__Constant__](tools.Constant.html): outputs a constant.
+* [__DirName__](tools.DirName.html): dirname of a path.
+* [__ExistsFile__](tools.ExistsFile.html): test file existence.
+* [__ForEach__](tools.ForEach.html): loop on each element of an array.
+* [__Join__](tools.Join.html): join elements of an array.
+* [__LoadStream__](tools.LoadStream.html): load file as a stream.
+* [__LoadText__](tools.LoadText.html): load file as a string.
+* [__MatchRegexp__](tools.MatchRegexp.html): match a string against a regular expression.
+* [__Nop__](tools.Nop.html): No operation.
+* [__PrefixSuffix__](tools.PrefixSuffix.html): surround a string with two constants.
+* [__ReadDir__](tools.ReadDir.html): list all files and subdirectories in a directory.
+* [__SaveText__](tools.SaveText.html): store string into a file.
+* [__ShellExec__](tools.ShellExec.html): execute a shell command.

@@ -10,8 +10,8 @@ describe('tools.ForEach', function() {
         });
         var looper = Matis.tools.ForEach({ tool: uppercase, output: 'text' });
         [['a'], ['fi', 'Hi'], ['o', 'h', 'l']].forEach(function (item) {
-            var caption = 'should be ok with ' + item.length + " item" 
-                    + (item.length > 1 ? 's' : '');
+            var caption = 'should be ok with ' + item.length + " item"
+                + (item.length > 1 ? 's' : '');
             it(caption, function(done) {
                 var expected = item.map(function(x) { return x.toUpperCase(); });
                 looper.exec(
@@ -46,11 +46,26 @@ describe('tools.ForEach', function() {
             }
         });
         var looper = Matis.tools.ForEach({ tool: uppercase, output: 'text' });
-        it('shold return []', function(done) {
+        it('should return []', function(done) {
             looper.exec(
                 {text: []},
                 function(input) {
                     expect(input.text).toEqual([]);
+                    done();
+                }
+            );
+        });
+    });
+
+    describe("many outputs", function() {
+        it('should ', function(done) {
+            var isJS = Matis.tools.MatchRegexp('\\.js$');
+            var looper = Matis.tools.ForEach({ tool: isJS, output: ["yes", "no"]});
+            looper.exec(
+                { text: ["a.js", "b.html", "c.js", "d.js"] },
+                function(outputs) {
+                    expect(outputs.yes).toEqual(['a.js', 'c.js', 'd.js']);
+                    expect(outputs.no).toEqual(['b.html']);
                     done();
                 }
             );

@@ -1,12 +1,10 @@
 # tools.BlackHole
 
-**************************************
-## Matis.tools.BlackHole()
 
 All not  linked ouptuts can  trigger a resolution.  But __BlackHole__ has no output. So, it is usefull for __ForEach__ tool.
 
-### Inputs
-* {any} `any` - any kind of value which will be swallowed by the black hole.
+## Inputs
+* {any} __any__ - any kind of value which will be swallowed by the black hole.
 
 ## Example
 ```js
@@ -28,4 +26,3 @@ var process = Matis.Process(function() {
 ```
 
 Without the BlackHole, this process would filter no file because all the __no__ outputs are outputs of the `ForEach`.
-***************************************
