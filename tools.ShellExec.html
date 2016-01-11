@@ -20,15 +20,15 @@
 <p>Execute a shell command and outputs <code>stdout</code> and <code>stderr</code>.</p>
 <h2>Options</h2>
 <ul>
-<li><strong>cwd</strong> {string}: current working directory of the child process</li>
-<li><strong>env</strong> {object}: environment key-value pairs</li>
-<li><strong>encoding</strong> {string}: (default: 'utf8')</li>
-<li><strong>shell</strong> {string}: shell to execute the command with (Default: '/bin/sh' on UNIX, 'cmd.exe' on Windows, The shell should understand the -c switch on UNIX or /s /c on Windows. On Windows, command line parsing should be compatible with cmd.exe.)</li>
-<li><strong>timeout</strong> {number}: (default: 0)</li>
-<li><strong>maxBuffer</strong> {number}: largest amount of data (in bytes) allowed on stdout or stderr - if exceeded child process is killed (Default: 200*1024)</li>
-<li><strong>killSignal</strong> {string}: (default: 'SIGTERM')</li>
-<li><strong>uid</strong> {number}: sets the user identity of the process. (See setuid(2).)</li>
-<li><strong>gid</strong> {number}: sets the group identity of the process. (See setgid(2).)</li>
+<li><strong>cwd</strong> {string}: current working directory of the child process.</li>
+<li><strong>env</strong> {object}: environment key-value pairs.</li>
+<li><strong>encoding</strong> {string}: (default: 'utf8').</li>
+<li><strong>shell</strong> {string}: shell to execute the command with (Default: '/bin/sh' on UNIX, 'cmd.exe' on Windows, The shell should understand the -c switch on UNIX or /s /c on Windows. On Windows, command line parsing should be compatible with cmd.exe.).</li>
+<li><strong>timeout</strong> {number}: (default: 0).</li>
+<li><strong>maxBuffer</strong> {number}: largest amount of data (in bytes) allowed on stdout or stderr - if exceeded child process is killed (Default: 200*1024).</li>
+<li><strong>killSignal</strong> {string}: (default: 'SIGTERM').</li>
+<li><strong>uid</strong> {number}: sets the user identity of the process.</li>
+<li><strong>gid</strong> {number}: sets the group identity of the process.</li>
 </ul>
 <h2>Inputs</h2>
 <ul>
